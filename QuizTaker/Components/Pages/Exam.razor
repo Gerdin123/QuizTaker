@@ -1,0 +1,135 @@
+@page "/exam"
+@rendermode InteractiveServer
+@inject QuizCatalogService CatalogService
+@inject QuizSessionService SessionService
+@inject NavigationManager Navigation
+
+<PageTitle>Exams</PageTitle>
+
+<div class="page-heading">
+    <div>
+        <h1>Exams</h1>
+        <p>Choose the quizzes and question counts to include in a scored exam.</p>
+    </div>
+    <a class="btn btn-secondary" href="" data-enhance-nav="false">Back to quizzes</a>
+</div>
+
+@if (catalog.Courses.Count == 0)
+{
+    <div class="empty-state">
+        <h2>No quizzes found</h2>
+        <p>Add quiz text files under the <code>Quizzes</code> folder before creating an exam.</p>
+    </div>
+}
+else
+{
+    <div class="course-stack">
+        @foreach (var course in catalog.Courses)
+        {
+            <section class="course-section">
+                <div class="course-header">
+                    <div>
+                        <h2>@course.Name</h2>
+                        <span>@SelectedExamQuizzes(course).Sum(pair => pair.Count) questions from @SelectedExamQuizzes(course).Count() quizzes</span>
+                    </div>
+                    <button class="btn btn-primary"
+                            disabled="@(!SelectedExamQuizzes(course).Any())"
+                            @onclick="() => StartExam(course)">
+                        Start exam
+                    </button>
+                </div>
+
+                <div class="selection-note">
+                    All quizzes are selected by default. Click a card to include or remove it, and adjust how many questions should be pulled from each quiz.
+                </div>
+
+                <div class="quiz-grid">
+                    @foreach (var quiz in course.Quizzes)
+                    {
+                        var selected = examSelections.Contains(quiz.Id);
+                        <article class="quiz-card selectable @(selected ? "selected" : "")"
+                                 @onclick="() => ToggleExamQuiz(quiz)">
+                            <div>
+                                <h3>@quiz.Title</h3>
+                                <p>@quiz.Questions.Count available questions</p>
+                            </div>
+                            <span class="card-state exam-state">@(selected ? "Included" : "Excluded")</span>
+                            <label class="number-row" @onclick:stopPropagation="true">
+                                <span>Questions</span>
+                                <input type="number"
+                                       min="1"
+                                       max="@quiz.Questions.Count"
+                                       value="@GetExamCount(quiz)"
+                                       disabled="@(!selected)"
+                                       @onchange="eventArgs => SetExamCount(quiz, eventArgs)" />
+                            </label>
+                        </article>
+                    }
+                </div>
+            </section>
+        }
+    </div>
+}
+
+@code {
+    private const int DefaultExamQuestionsPerQuiz = 10;
+
+    private QuizCatalog catalog = new([]);
+    private readonly HashSet<string> examSelections = [];
+    private readonly Dictionary<string, int> examCounts = [];
+
+    protected override void OnInitialized()
+    {
+        catalog = CatalogService.GetCatalog();
+        foreach (var quiz in catalog.AllQuizzes)
+        {
+            examSelections.Add(quiz.Id);
+            examCounts[quiz.Id] = Math.Min(DefaultExamQuestionsPerQuiz, quiz.Questions.Count);
+        }
+    }
+
+    private void ToggleExamQuiz(QuizDefinition quiz)
+    {
+        if (!examSelections.Add(quiz.Id))
+        {
+            examSelections.Remove(quiz.Id);
+        }
+    }
+
+    private int GetExamCount(QuizDefinition quiz)
+    {
+        return examCounts.GetValueOrDefault(quiz.Id, Math.Min(DefaultExamQuestionsPerQuiz, quiz.Questions.Count));
+    }
+
+    private void SetExamCount(QuizDefinition quiz, ChangeEventArgs eventArgs)
+    {
+        var rawValue = Convert.ToString(eventArgs.Value);
+        if (!int.TryParse(rawValue, out var count))
+        {
+            examCounts[quiz.Id] = Math.Min(DefaultExamQuestionsPerQuiz, quiz.Questions.Count);
+            return;
+        }
+
+        examCounts[quiz.Id] = Math.Clamp(count, 1, quiz.Questions.Count);
+    }
+
+    private IEnumerable<(QuizDefinition Quiz, int Count)> SelectedExamQuizzes(CourseGroup course)
+    {
+        return course.Quizzes
+            .Where(quiz => examSelections.Contains(quiz.Id))
+            .Select(quiz => (Quiz: quiz, Count: GetExamCount(quiz)))
+            .Where(pair => pair.Count > 0);
+    }
+
+    private void StartExam(CourseGroup course)
+    {
+        var selected = SelectedExamQuizzes(course).ToDictionary(pair => pair.Quiz, pair => pair.Count);
+        if (selected.Count == 0)
+        {
+            return;
+        }
+
+        var runId = SessionService.StartExam(course.Name, selected);
+        Navigation.NavigateTo($"take/{runId}", forceLoad: true);
+    }
+}

@@ -1,0 +1,109 @@
+@page "/take/{RunId:guid}"
+@rendermode InteractiveServer
+@inject QuizSessionService SessionService
+@inject NavigationManager Navigation
+
+<PageTitle>Take Quiz</PageTitle>
+
+@if (run is null)
+{
+    <div class="empty-state">
+        <h1>Quiz session not found</h1>
+        <p>The session may have already been submitted. Return home and start a new quiz.</p>
+        <a class="btn btn-primary" href="" data-enhance-nav="false">Home</a>
+    </div>
+}
+else
+{
+    <div class="page-heading">
+        <div>
+            <h1>@run.Title</h1>
+            <p>@run.Course - @run.Questions.Count questions</p>
+        </div>
+        @if (run.Mode == QuizRunMode.Practice)
+        {
+            <span class="status-pill">Practice score will not be saved</span>
+        }
+        else
+        {
+            <span class="status-pill saved">Score will be saved</span>
+        }
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(validationMessage))
+    {
+        <div class="alert alert-warning">@validationMessage</div>
+    }
+
+    <div class="question-stack">
+        @for (var i = 0; i < run.Questions.Count; i++)
+        {
+            var question = run.Questions[i];
+            <section class="question-card">
+                <div class="question-meta">
+                    <strong>Question @(i + 1)</strong>
+                    <span>@question.QuizTitle</span>
+                </div>
+                <h2>@question.Text</h2>
+                <div class="choice-list">
+                    @foreach (var choice in question.Choices)
+                    {
+                        <label class="choice-row">
+                            <input type="radio"
+                                   name="@question.Id"
+                                   value="@choice"
+                                   checked="@(selectedAnswers.GetValueOrDefault(question.Id) == choice)"
+                                   @onchange="eventArgs => SelectAnswer(question.Id, Convert.ToString(eventArgs.Value) ?? string.Empty)" />
+                            <span>@choice</span>
+                        </label>
+                    }
+                </div>
+            </section>
+        }
+    </div>
+
+    <div class="submit-bar">
+        <span>@selectedAnswers.Count / @run.Questions.Count answered</span>
+        <button class="btn btn-primary btn-lg" @onclick="SubmitAsync">Submit</button>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Guid RunId { get; set; }
+
+    private QuizRun? run;
+    private readonly Dictionary<string, string> selectedAnswers = [];
+    private string? validationMessage;
+
+    protected override void OnParametersSet()
+    {
+        run = SessionService.GetRun(RunId);
+    }
+
+    private void SelectAnswer(string questionId, string choice)
+    {
+        selectedAnswers[questionId] = choice;
+        validationMessage = null;
+    }
+
+    private async Task SubmitAsync()
+    {
+        if (run is null)
+        {
+            return;
+        }
+
+        if (selectedAnswers.Count < run.Questions.Count)
+        {
+            validationMessage = "Answer every question before submitting.";
+            return;
+        }
+
+        var result = await SessionService.CompleteRunAsync(run.Id, selectedAnswers);
+        if (result is not null)
+        {
+            Navigation.NavigateTo($"results/{run.Id}", forceLoad: true);
+        }
+    }
+}

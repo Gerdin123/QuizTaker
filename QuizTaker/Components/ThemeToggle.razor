@@ -1,0 +1,38 @@
+@rendermode InteractiveServer
+@inject IJSRuntime JS
+@inject ThemeState ThemeState
+
+<button class="theme-toggle"
+        type="button"
+        title="@ButtonTitle"
+        aria-label="@ButtonTitle"
+        @onclick="ToggleThemeAsync">
+    <span class="theme-toggle-icon" aria-hidden="true">@Icon</span>
+    <span>@Label</span>
+</button>
+
+@code {
+    private string Icon => ThemeState.CurrentTheme == "dark" ? "D" : "L";
+
+    private string Label => ThemeState.CurrentTheme == "dark" ? "Dark" : "Light";
+
+    private string ButtonTitle => ThemeState.CurrentTheme == "dark" ? "Switch to light mode" : "Switch to dark mode";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+        {
+            return;
+        }
+
+        var theme = await JS.InvokeAsync<string>("quizTakerTheme.get");
+        ThemeState.SetTheme(theme);
+    }
+
+    private async Task ToggleThemeAsync()
+    {
+        var nextTheme = ThemeState.CurrentTheme == "dark" ? "light" : "dark";
+        var theme = await JS.InvokeAsync<string>("quizTakerTheme.set", nextTheme);
+        ThemeState.SetTheme(theme);
+    }
+}

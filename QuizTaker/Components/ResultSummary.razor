@@ -1,0 +1,46 @@
+<div class="page-heading">
+    <div>
+        <h1>@Result.Title</h1>
+        <p>@Result.Course - @Result.Mode</p>
+    </div>
+    <a class="btn btn-secondary" href="" data-enhance-nav="false">Home</a>
+</div>
+
+<div class="score-panel">
+    <div>
+        <span>Correct</span>
+        <strong>@Result.CorrectCount / @Result.TotalQuestions</strong>
+    </div>
+    <div>
+        <span>Percentage</span>
+        <strong>@Result.Percentage%</strong>
+    </div>
+    <div>
+        <span>Status</span>
+        <strong>@(Result.ScoreSaved ? "Saved" : "Practice only")</strong>
+    </div>
+</div>
+
+@if (!Result.ScoreSaved)
+{
+    <div class="alert alert-info">This combined quiz was practice for learning. The score was not saved.</div>
+}
+
+<div class="answer-review">
+    @foreach (var answer in Result.Answers)
+    {
+        <article class="review-row @(answer.IsCorrect ? "correct" : "incorrect")">
+            <div>
+                <span>@answer.Question.QuizTitle</span>
+                <h2>@answer.Question.Text</h2>
+            </div>
+            <p><strong>Your answer:</strong> @(string.IsNullOrWhiteSpace(answer.SelectedAnswer) ? "No answer" : answer.SelectedAnswer)</p>
+            <p><strong>Correct answer:</strong> @answer.Question.CorrectAnswer</p>
+        </article>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public QuizRunResult Result { get; set; } = default!;
+}

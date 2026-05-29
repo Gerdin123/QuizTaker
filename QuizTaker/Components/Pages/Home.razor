@@ -1,0 +1,180 @@
+@page "/"
+@rendermode InteractiveServer
+@inject QuizCatalogService CatalogService
+@inject QuizSessionService SessionService
+@inject NavigationManager Navigation
+
+<PageTitle>Quizzes</PageTitle>
+
+<div class="page-heading">
+    <div>
+        <h1>Quizzes</h1>
+        <p>Start a single quiz or build a combined practice test from one course.</p>
+    </div>
+    <a class="btn btn-secondary" href="exam" data-enhance-nav="false">Create exam</a>
+</div>
+
+@if (catalog.Courses.Count == 0)
+{
+    <div class="empty-state">
+        <h2>No quizzes found</h2>
+        <p>Add copied quiz text files under the <code>Quizzes</code> folder. Subfolders become course names; files at the root are grouped as Other.</p>
+    </div>
+}
+else
+{
+    <div class="course-stack">
+        @foreach (var course in catalog.Courses)
+        {
+            var isCombining = activeCombinedCourse == course.Name;
+            <section class="course-section">
+                <div class="course-header">
+                    <div>
+                        <h2>@course.Name</h2>
+                        <span>@course.Quizzes.Sum(quiz => quiz.Questions.Count) questions in @course.Quizzes.Count quizzes</span>
+                    </div>
+                    <div class="course-actions compact">
+                        @if (!isCombining)
+                        {
+                            <button class="btn btn-secondary" @onclick="() => StartCombinedSetup(course)">Start combined test</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-ghost" @onclick="CancelCombinedSetup">Cancel</button>
+                            <button class="btn btn-primary"
+                                    disabled="@(SelectedPracticeQuizzes(course).Count < 2)"
+                                    @onclick="() => StartPractice(course)">
+                                Begin selected test
+                            </button>
+                        }
+                    </div>
+                </div>
+
+                @if (isCombining)
+                {
+                    <div class="selection-note">
+                        <strong>@SelectedPracticeQuizzes(course).Count selected.</strong>
+                        Click quiz cards to include or remove them. Combined tests are practice only and scores are not saved.
+                    </div>
+                }
+
+                <div class="quiz-grid">
+                    @foreach (var quiz in course.Quizzes)
+                    {
+                        var selected = practiceSelections.Contains(quiz.Id);
+                        <article class="quiz-card @(isCombining ? "selectable" : "") @(selected && isCombining ? "selected" : "")"
+                                 @onclick="() => TogglePracticeCard(course, quiz)">
+                            <div>
+                                <h3>@quiz.Title</h3>
+                                <p>@quiz.Questions.Count questions</p>
+                            </div>
+                            @if (isCombining)
+                            {
+                                <span class="card-state">@(selected ? "Selected" : "Not selected")</span>
+                            }
+                            else
+                            {
+                                <div class="card-actions">
+                                    <button class="btn btn-primary" @onclick:stopPropagation="true" @onclick="() => StartQuiz(quiz)">Start quiz</button>
+                                </div>
+                            }
+                        </article>
+                    }
+                </div>
+            </section>
+        }
+    </div>
+}
+
+<section class="history-section">
+    <h2>Recent scores</h2>
+    @if (recentAttempts.Count == 0)
+    {
+        <p>No saved quiz or exam scores yet.</p>
+    }
+    else
+    {
+        <div class="attempt-list">
+            @foreach (var attempt in recentAttempts)
+            {
+                <a class="attempt-row" href="@($"attempt/{attempt.Id}")" data-enhance-nav="false">
+                    <span>
+                        <strong>@attempt.Title</strong>
+                        <small>@attempt.Course - @attempt.Mode - @attempt.CompletedAt.LocalDateTime.ToString("yyyy-MM-dd HH:mm")</small>
+                    </span>
+                    <strong>@attempt.CorrectCount / @attempt.TotalQuestions (@ScorePercent(attempt)%)</strong>
+                </a>
+            }
+        </div>
+    }
+</section>
+
+@code {
+    private QuizCatalog catalog = new([]);
+    private IReadOnlyList<QuizAttempt> recentAttempts = [];
+    private readonly HashSet<string> practiceSelections = [];
+    private string? activeCombinedCourse;
+
+    protected override async Task OnInitializedAsync()
+    {
+        catalog = CatalogService.GetCatalog();
+        recentAttempts = await SessionService.GetRecentAttemptsAsync();
+    }
+
+    private void StartQuiz(QuizDefinition quiz)
+    {
+        var runId = SessionService.StartQuiz(quiz);
+        Navigation.NavigateTo($"take/{runId}", forceLoad: true);
+    }
+
+    private void StartCombinedSetup(CourseGroup course)
+    {
+        activeCombinedCourse = course.Name;
+        practiceSelections.Clear();
+        foreach (var quiz in course.Quizzes)
+        {
+            practiceSelections.Add(quiz.Id);
+        }
+    }
+
+    private void CancelCombinedSetup()
+    {
+        activeCombinedCourse = null;
+        practiceSelections.Clear();
+    }
+
+    private void TogglePracticeCard(CourseGroup course, QuizDefinition quiz)
+    {
+        if (activeCombinedCourse != course.Name)
+        {
+            return;
+        }
+
+        if (!practiceSelections.Add(quiz.Id))
+        {
+            practiceSelections.Remove(quiz.Id);
+        }
+    }
+
+    private void StartPractice(CourseGroup course)
+    {
+        var selected = SelectedPracticeQuizzes(course);
+        if (selected.Count < 2)
+        {
+            return;
+        }
+
+        var runId = SessionService.StartPractice(course.Name, selected);
+        Navigation.NavigateTo($"take/{runId}", forceLoad: true);
+    }
+
+    private List<QuizDefinition> SelectedPracticeQuizzes(CourseGroup course)
+    {
+        return course.Quizzes.Where(quiz => practiceSelections.Contains(quiz.Id)).ToList();
+    }
+
+    private static decimal ScorePercent(QuizAttempt attempt)
+    {
+        return attempt.TotalQuestions == 0 ? 0 : Math.Round((decimal)attempt.CorrectCount / attempt.TotalQuestions * 100, 1);
+    }
+}

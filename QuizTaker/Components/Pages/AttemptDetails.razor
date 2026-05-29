@@ -1,0 +1,65 @@
+@page "/attempt/{AttemptId:int}"
+@rendermode InteractiveServer
+@inject QuizSessionService SessionService
+
+<PageTitle>Saved Score</PageTitle>
+
+@if (attempt is null)
+{
+    <div class="empty-state">
+        <h1>Saved score not found</h1>
+        <a class="btn btn-primary" href="" data-enhance-nav="false">Home</a>
+    </div>
+}
+else
+{
+    <div class="page-heading">
+        <div>
+            <h1>@attempt.Title</h1>
+            <p>@attempt.Course - @attempt.Mode - @attempt.CompletedAt.LocalDateTime.ToString("yyyy-MM-dd HH:mm")</p>
+        </div>
+        <a class="btn btn-secondary" href="" data-enhance-nav="false">Home</a>
+    </div>
+
+    <div class="score-panel">
+        <div>
+            <span>Correct</span>
+            <strong>@attempt.CorrectCount / @attempt.TotalQuestions</strong>
+        </div>
+        <div>
+            <span>Percentage</span>
+            <strong>@ScorePercent(attempt)%</strong>
+        </div>
+    </div>
+
+    <div class="answer-review">
+        @foreach (var answer in attempt.Answers)
+        {
+            <article class="review-row @(answer.IsCorrect ? "correct" : "incorrect")">
+                <div>
+                    <span>@answer.SourceQuizTitle</span>
+                    <h2>@answer.QuestionText</h2>
+                </div>
+                <p><strong>Your answer:</strong> @(string.IsNullOrWhiteSpace(answer.SelectedAnswer) ? "No answer" : answer.SelectedAnswer)</p>
+                <p><strong>Correct answer:</strong> @answer.CorrectAnswer</p>
+            </article>
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int AttemptId { get; set; }
+
+    private QuizAttempt? attempt;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        attempt = await SessionService.GetSavedAttemptAsync(AttemptId);
+    }
+
+    private static decimal ScorePercent(QuizAttempt savedAttempt)
+    {
+        return savedAttempt.TotalQuestions == 0 ? 0 : Math.Round((decimal)savedAttempt.CorrectCount / savedAttempt.TotalQuestions * 100, 1);
+    }
+}

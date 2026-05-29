@@ -1,0 +1,1183 @@
+1
+1 / 1 point
+Multiple Choice
+What is the main purpose of virtualization in computing?
+
+
+To increase hardware resources
+
+, Not Selected
+
+To separate user data from applications
+
+, Not Selected
+Correct answer:
+
+To allow multiple operating systems to run on a single physical machine
+
+
+To improve network bandwidth
+
+, Not Selected
+Results for question 2.
+2
+1 / 1 point
+Multiple Choice
+Which of the following is a type of virtualization technology?
+
+
+Data virtualization
+
+, Not Selected
+
+Hardware virtualization
+
+, Not Selected
+
+Networking virtualization
+
+, Not Selected
+Correct answer:
+
+All of the above
+
+Results for question 3.
+3
+1 / 1 point
+Multiple Choice
+Which of the following is a key benefit of virtualization?
+
+Correct answer:
+
+Better resource utilization
+
+
+Higher energy consumption
+
+, Not Selected
+
+Reduced security risks
+
+, Not Selected
+
+Decreased complexity in IT systems
+
+, Not Selected
+Results for question 4.
+4
+0 / 1 point
+Multiple Choice
+What does a hypervisor do?
+
+Incorrect answer:
+
+Manages network traffic between virtual machines
+
+Correct Answer:
+Creates and manages virtual machines
+
+
+Creates and manages virtual machines
+
+, Not Selected
+
+Provides security for virtual machines
+
+, Not Selected
+
+Assigns physical resources to users
+
+, Not Selected
+Results for question 5.
+5
+0 / 1 point
+Multiple Choice
+Which of the following is a type of hypervisor?
+
+
+Type 1 Hypervisor
+
+, Not Selected
+Incorrect answer:
+
+Type 2 Hypervisor
+
+Correct Answer:
+Both Type 1 and Type 2 Hypervisors
+
+
+Both Type 1 and Type 2 Hypervisors
+
+, Not Selected
+
+None of the Type 1 or Type 2 Hypervisors
+
+, Not Selected
+Results for question 6.
+6
+1 / 1 point
+Multiple Choice
+Which hypervisor runs directly on the host hardware without needing an underlying operating system?
+
+Correct answer:
+
+Type 1 Hypervisor
+
+
+Type 2 Hypervisor
+
+, Not Selected
+
+VirtualBox
+
+, Not Selected
+
+VMware Workstation
+
+, Not Selected
+Results for question 7.
+7
+0 / 1 point
+Multiple Choice
+Which of the following is an example of a Type 2 hypervisor?
+
+
+VMware ESXi
+
+, Not Selected
+
+Oracle VM VirtualBox
+
+, Not Selected
+Incorrect answer:
+
+Nutanix AHV
+
+Correct Answer:
+Oracle VM VirtualBox
+
+
+Xen Server
+
+, Not Selected
+Results for question 8.
+8
+1 / 1 point
+Multiple Choice
+Which of the following is an advantage of using virtual machines in a data center?
+
+Correct answer:
+
+Easy scaling
+
+
+High power consumption
+
+, Not Selected
+
+More complex networking
+
+, Not Selected
+
+Reduced security
+
+, Not Selected
+Results for question 9.
+9
+1 / 1 point
+Multiple Choice
+What is the primary purpose of containerization?
+
+Correct answer:
+
+To provide an isolated environment for running applications
+
+
+To run applications with better network performance
+
+, Not Selected
+
+To enable virtualization on low-end hardware
+
+, Not Selected
+
+To increase physical memory utilization
+
+, Not Selected
+Results for question 10.
+10
+1 / 1 point
+Multiple Choice
+Which containerization technology is most widely used?
+
+Correct answer:
+
+Docker
+
+
+VMware
+
+, Not Selected
+
+OpenStack
+
+, Not Selected
+
+Hyper-V
+
+, Not Selected
+Results for question 11.
+11
+1 / 1 point
+Multiple Choice
+Which of the following best describes a container?
+
+
+A lightweight virtual machine
+
+, Not Selected
+
+A virtualized version of a hardware server
+
+, Not Selected
+Correct answer:
+
+A package that includes everything needed to run a piece of software
+
+
+A file storage system for virtual machines
+
+, Not Selected
+Results for question 12.
+12
+1 / 1 point
+Multiple Choice
+What is the main difference between containers and virtual machines?
+
+
+Containers emulate hardware; VMs do not
+
+, Not Selected
+Correct answer:
+
+Containers run on the host operating system, while VMs run their own OS
+
+
+VMs are faster than containers
+
+, Not Selected
+
+VMs share the host OS, containers don’t
+
+, Not Selected
+Results for question 13.
+13
+0 / 1 point
+Multiple Choice
+Which of the following is a characteristic of containers?
+
+
+Each container runs a full operating system
+
+, Not Selected
+
+Containers share the host operating system's kernel
+
+, Not Selected
+
+Containers require a hypervisor
+
+, Not Selected
+Incorrect answer:
+
+Containers need significant resources compared to VMs
+
+Correct Answer:
+Containers share the host operating system's kernel
+
+Results for question 14.
+14
+0 / 1 point
+Multiple Choice
+Which command is used to create a container in Docker?
+
+Incorrect answer:
+
+docker start
+
+Correct Answer:
+docker create
+
+
+docker create
+
+, Not Selected
+
+docker container run
+
+, Not Selected
+
+docker init
+
+, Not Selected
+Results for question 15.
+15
+1 / 1 point
+Multiple Choice
+What does Docker use to isolate containers from each other?
+
+
+Virtual Machines
+
+, Not Selected
+Correct answer:
+
+Namespaces
+
+
+Hypervisors
+
+, Not Selected
+
+Firewalls
+
+, Not Selected
+Results for question 16.
+16
+0 / 1 point
+Multiple Choice
+What is the purpose of Docker images?
+
+
+They provide a physical layer of storage for containers
+
+, Not Selected
+Incorrect answer:
+
+They allow containers to run on different machines
+
+Correct Answer:
+They define the environment in which containers run
+
+
+They define the environment in which containers run
+
+, Not Selected
+
+They are used to monitor container performance
+
+, Not Selected
+Results for question 17.
+17
+1 / 1 point
+Multiple Choice
+Which file is used to automate Docker container builds?
+
+Correct answer:
+
+Dockerfile
+
+
+Dockerbuild
+
+, Not Selected
+
+Dockercompose
+
+, Not Selected
+
+Dockerconfig
+
+, Not Selected
+Results for question 18.
+18
+1 / 1 point
+Multiple Choice
+Which of the following is true about container orchestration?
+
+
+It manages only virtual machines
+
+, Not Selected
+Correct answer:
+
+It automates the deployment, scaling, and management of containerized applications
+
+
+It only applies to Docker containers
+
+, Not Selected
+
+It requires virtual machines for scalability
+
+, Not Selected
+Results for question 19.
+19
+1 / 1 point
+Multiple Choice
+Which of the following is an advantage of using containers over virtual machines?
+
+
+Containers provide better isolation
+
+, Not Selected
+Correct answer:
+
+Containers are more resource-efficient and lightweight
+
+
+Virtual machines are faster at startup
+
+, Not Selected
+
+Containers require a different operating system
+
+, Not Selected
+Results for question 20.
+20
+0 / 1 point
+Multiple Choice
+Which of the following is a drawback of containers compared to virtual machines?
+
+Incorrect answer:
+
+Higher overhead
+
+Correct Answer:
+Less isolation between workloads
+
+
+Less isolation between workloads
+
+, Not Selected
+
+Cannot run multiple containers
+
+, Not Selected
+
+Require more disk space
+
+, Not Selected
+Results for question 21.
+21
+1 / 1 point
+Multiple Choice
+In which scenario are containers typically preferred over virtual machines?
+
+
+For running legacy applications
+
+, Not Selected
+
+For applications requiring full OS isolation
+
+, Not Selected
+Correct answer:
+
+For microservices and stateless applications
+
+
+For applications that require intensive graphics processing
+
+, Not Selected
+Results for question 22.
+22
+0 / 1 point
+Multiple Choice
+Which of the following provides the most resource isolation between workloads?
+
+
+Virtual Machines (VMs)
+
+, Not Selected
+Incorrect answer:
+
+Containers
+
+Correct Answer:
+Virtual Machines (VMs)
+
+
+Both VMs and Containers provide the same isolation
+
+, Not Selected
+
+Virtualization and containerization are unrelated
+
+, Not Selected
+Results for question 23.
+23
+1 / 1 point
+Multiple Choice
+Which technology is commonly used for container orchestration?
+
+Correct answer:
+
+Kubernetes
+
+
+VMware
+
+, Not Selected
+
+Xen
+
+, Not Selected
+
+Hyper-V
+
+, Not Selected
+Results for question 24.
+24
+1 / 1 point
+Multiple Choice
+What is a key characteristic of a virtual machine compared to a container?
+
+
+VMs run the host operating system’s kernel
+
+, Not Selected
+
+VMs do not require hypervisors
+
+, Not Selected
+Correct answer:
+
+VMs require more overhead because they run a full operating system
+
+
+VMs are more resource-efficient than containers
+
+, Not Selected
+Results for question 25.
+25
+1 / 1 point
+Multiple Choice
+Which of the following is a challenge with containerization?
+
+
+Limited scalability
+
+, Not Selected
+Correct answer:
+
+Managing large numbers of containers
+
+
+Virtual machines are faster
+
+, Not Selected
+
+Requires special hardware support
+
+, Not Selected
+Results for question 26.
+26
+0 / 1 point
+Multiple Choice
+Which component is shared between containers on the same host?
+
+
+Kernel
+
+, Not Selected
+Incorrect answer:
+
+User space
+
+Correct Answer:
+Kernel
+
+
+Disk storage
+
+, Not Selected
+
+Virtualization layer
+
+, Not Selected
+Results for question 27.
+27
+1 / 1 point
+Multiple Choice
+Which of the following is true about virtual machines and containers?
+
+
+VMs are more scalable than containers
+
+, Not Selected
+Correct answer:
+
+Containers can provide better portability than VMs
+
+
+VMs require less hardware resources
+
+, Not Selected
+
+Containers are slower than VMs
+
+, Not Selected
+Results for question 28.
+28
+1 / 1 point
+Multiple Choice
+Which of the following is a key difference between Docker and virtual machines?
+
+
+Docker uses a full operating system for each container
+
+, Not Selected
+
+Virtual machines use containers for resource management
+
+, Not Selected
+Correct answer:
+
+Docker containers share the host OS kernel, while VMs run separate OSes
+
+
+ VMs use Docker for containerization
+
+, Not Selected
+Results for question 29.
+29
+1 / 1 point
+Multiple Choice
+What is the main purpose of Docker Compose?
+
+
+To manage Docker containers on multiple machines
+
+, Not Selected
+
+To automate the scaling of Docker containers
+
+, Not Selected
+Correct answer:
+
+To define and run multi-container Docker applications
+
+
+To secure Docker containers
+
+, Not Selected
+Results for question 30.
+30
+1 / 1 point
+Multiple Choice
+What is a common use case for container orchestration?
+
+
+Running single-container applications
+
+, Not Selected
+Correct answer:
+
+Managing large numbers of containers across multiple hosts
+
+
+Increasing the physical storage of containers
+
+, Not Selected
+
+Securing virtual machines
+
+, Not Selected
+Results for question 31.
+31
+1 / 1 point
+Multiple Choice
+Which of the following is an example of a container runtime?
+
+Correct answer:
+
+Docker
+
+
+Hyper-V
+
+, Not Selected
+
+Xen
+
+, Not Selected
+
+KVM
+
+, Not Selected
+Results for question 32.
+32
+1 / 1 point
+Multiple Choice
+Which feature of containers helps improve portability?
+
+
+Isolated networking
+
+, Not Selected
+Correct answer:
+
+Container images include all necessary dependencies
+
+
+Containers run only on Linux systems
+
+, Not Selected
+
+Containers use virtual machines for isolation
+
+, Not Selected
+Results for question 33.
+33
+1 / 1 point
+Multiple Choice
+Which of the following is true about the Docker container lifecycle?
+
+
+Containers can only be run on Linux systems
+
+, Not Selected
+
+Containers cannot be stopped once started
+
+, Not Selected
+Correct answer:
+
+Docker images are used to create containers
+
+
+Containers never require an image to function
+
+, Not Selected
+Results for question 34.
+34
+0 / 1 point
+Multiple Choice
+In which scenario would virtualization be preferred over containerization?
+
+
+When running small-scale, stateless applications
+
+, Not Selected
+
+When needing to isolate applications with different operating systems
+
+, Not Selected
+Incorrect answer:
+
+For building lightweight development environments
+
+Correct Answer:
+When needing to isolate applications with different operating systems
+
+
+When managing microservices in production
+
+, Not Selected
+Results for question 35.
+35
+1 / 1 point
+Multiple Choice
+Which of the following is the most commonly used image repository for Docker?
+
+Correct answer:
+
+Docker Hub
+
+
+Amazon S3
+
+, Not Selected
+
+GitHub
+
+, Not Selected
+
+Google Cloud Storage
+
+, Not Selected
+Results for question 36.
+36
+1 / 1 point
+Multiple Choice
+What is the purpose of the Docker "push" command?
+
+
+To start a container
+
+, Not Selected
+Correct answer:
+
+To upload a Docker image to a registry
+
+
+To remove a container
+
+, Not Selected
+
+To create a new container
+
+, Not Selected
+Results for question 37.
+37
+1 / 1 point
+Multiple Choice
+What is the "mounting" feature in containers used for?
+
+
+To increase container security
+
+, Not Selected
+Correct answer:
+
+To connect external storage to a container
+
+
+To scale containers
+
+, Not Selected
+
+To ensure containers are isolated
+
+, Not Selected
+Results for question 38.
+38
+0 / 1 point
+Multiple Choice
+Which of the following commands lists all running containers?
+
+
+docker ps
+
+, Not Selected
+
+docker images
+
+, Not Selected
+
+docker containers
+
+, Not Selected
+Incorrect answer:
+
+docker list
+
+Correct Answer:
+docker ps
+
+Results for question 39.
+39
+1 / 1 point
+Multiple Choice
+What is the purpose of a Dockerfile?
+
+
+To define the networking settings for a Docker container
+
+, Not Selected
+
+To specify the configuration for Docker Compose
+
+, Not Selected
+Correct answer:
+
+To create a custom Docker image by defining instructions
+
+
+To store logs for a Docker container
+
+, Not Selected
+Results for question 40.
+40
+1 / 1 point
+Multiple Choice
+Which keyword is used in a Dockerfile to set the base image?
+
+Correct answer:
+
+FROM
+
+
+BASE
+
+, Not Selected
+
+IMAGE
+
+, Not Selected
+
+RUN
+
+, Not Selected
+Results for question 41.
+41
+0 / 1 point
+Multiple Choice
+Which command in a Dockerfile is used to execute a command during the image build process?
+
+Incorrect answer:
+
+CMD
+
+Correct Answer:
+RUN
+
+
+RUN
+
+, Not Selected
+
+EXEC
+
+, Not Selected
+
+ENTRYPOINT
+
+, Not Selected
+Results for question 42.
+42
+1 / 1 point
+Multiple Choice
+Which command starts a Docker Compose application?
+
+
+docker compose start
+
+, Not Selected
+Correct answer:
+
+docker compose up
+
+
+docker compose run
+
+, Not Selected
+
+docker compose init
+
+, Not Selected
+Results for question 43.
+43
+1 / 1 point
+Multiple Choice
+How do you stop and remove containers created by Docker Compose?
+
+
+docker compose stop
+
+, Not Selected
+
+docker compose remove
+
+, Not Selected
+Correct answer:
+
+docker compose down
+
+
+docker compose halt
+
+, Not Selected
+Results for question 44.
+44
+1 / 1 point
+Multiple Choice
+Which section in a Docker Compose YAML file is used to define services?
+
+
+containers
+
+, Not Selected
+Correct answer:
+
+services
+
+
+images
+
+, Not Selected
+
+tasks
+
+, Not Selected
+Results for question 45.
+45
+1 / 1 point
+Multiple Choice
+Which keyword in a Docker Compose YAML file specifies the image to use for a service?
+
+
+container
+
+, Not Selected
+
+base_image
+
+, Not Selected
+Correct answer:
+
+image
+
+
+source
+
+, Not Selected
+Results for question 46.
+46
+0 / 1 point
+Multiple Choice
+How do you define a port mapping in a Docker Compose YAML file?
+
+
+ports: [8080:80]
+
+, Not Selected
+Incorrect answer:
+
+expose: [8080:80]
+
+Correct Answer:
+ports: - 8080:80
+
+
+ports: - 8080:80
+
+, Not Selected
+
+map_ports: 8080:80
+
+, Not Selected
+Results for question 47.
+47
+1 / 1 point
+Multiple Choice
+What does the volumes section in a Docker Compose YAML file specify?
+
+
+The amount of memory allocated to a container
+
+, Not Selected
+Correct answer:
+
+The data storage locations for containers
+
+
+The network configurations for a container
+
+, Not Selected
+
+The environment variables for a container
+
+, Not Selected
+Results for question 48.
+48
+1 / 1 point
+Multiple Choice
+What is the purpose of the depends_on keyword in a Docker Compose YAML file?
+
+
+To ensure services are restarted automatically
+
+, Not Selected
+Correct answer:
+
+To define dependencies between services
+
+
+To map environment variables to services
+
+, Not Selected
+
+To expose services to external networks
+
+, Not Selected
+Results for question 49.
+49
+0 / 1 point
+Multiple Choice
+Which of the following specifies environment variables for a service in Docker Compose?
+
+Incorrect answer:
+
+env
+
+Correct Answer:
+environment
+
+
+environment
+
+, Not Selected
+
+variables
+
+, Not Selected
+
+config
+
+, Not Selected
+Results for question 50.
+50
+1 / 1 point
+Multiple Choice
+What is the purpose of the docker exec command?
+
+
+To create a new Docker image from an existing container
+
+, Not Selected
+Correct answer:
+
+To execute a command inside a running container
+
+
+To list all running Docker containers
+
+, Not Selected
+
+To restart a stopped container
+
+, Not Selected
+Results for question 51.
+51
+1 / 1 point
+Multiple Choice
+How do Docker containers usually resolve each other’s DNS names within a custom network?
+
+
+By manually configuring /etc/hosts in each container
+
+, Not Selected
+
+By using the container’s IP address
+
+, Not Selected
+Correct answer:
+
+By using the container name as the DNS name
+
+
+By connecting to an external DNS server
+
+, Not Selected
+Results for question 52.
+52
+1 / 1 point
+Multiple Choice
+What is the purpose of the docker build command?
+
+
+To start a Docker container from an image
+
+, Not Selected
+Correct answer:
+
+To create a new Docker image from a Dockerfile
+
+
+To push an image to Docker Hub
+
+, Not Selected
+
+To list all Docker images on the host

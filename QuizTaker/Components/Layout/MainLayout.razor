@@ -1,0 +1,69 @@
+@inherits LayoutComponentBase
+@implements IDisposable
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@inject ThemeState ThemeState
+
+<div class="app-shell @ThemeState.CssClass">
+    <header class="app-header">
+        <a class="brand" href="" data-enhance-nav="false">
+            <span class="brand-mark">Q</span>
+            <span>QuizTaker</span>
+        </a>
+        <nav class="app-nav" aria-label="Primary">
+            <NavLink href="" Match="NavLinkMatch.All" data-enhance-nav="false">Quizzes</NavLink>
+            <NavLink href="exam" data-enhance-nav="false">Exams</NavLink>
+        </nav>
+        <ThemeToggle />
+    </header>
+
+    <main class="app-main">
+        @Body
+    </main>
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">x</span>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Navigation.LocationChanged += OnLocationChanged;
+        ThemeState.Changed += OnThemeChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+        {
+            return;
+        }
+
+        var theme = await JS.InvokeAsync<string>("quizTakerTheme.applyStored");
+        ThemeState.SetTheme(theme);
+    }
+
+    private async void OnLocationChanged(object? sender, LocationChangedEventArgs args)
+    {
+        await InvokeAsync(async () =>
+        {
+            await Task.Delay(1);
+            var theme = await JS.InvokeAsync<string>("quizTakerTheme.applyStored");
+            ThemeState.SetTheme(theme);
+        });
+    }
+
+    private void OnThemeChanged()
+    {
+        _ = InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= OnLocationChanged;
+        ThemeState.Changed -= OnThemeChanged;
+    }
+}

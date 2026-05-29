@@ -1,0 +1,1094 @@
+What is cloud computing?
+
+
+Managing computer resources on-premises
+
+, Not Selected
+Correct answer:
+
+Delivering computing services over the internet
+
+
+Using traditional IT systems
+
+, Not Selected
+
+Managing only storage resources
+
+, Not Selected
+Results for question 2.
+2
+1 / 1 point
+Multiple Choice
+Which of the following is NOT a characteristic of cloud computing?
+
+
+Scalability
+
+, Not Selected
+
+Pay-as-you-go pricing
+
+, Not Selected
+Correct answer:
+
+Manual provisioning
+
+
+Resource pooling
+
+, Not Selected
+Results for question 3.
+3
+1 / 1 point
+Multiple Choice
+What does SaaS stand for?
+
+
+Software and a Service
+
+, Not Selected
+Correct answer:
+
+Software as a Service
+
+
+System as a Service
+
+, Not Selected
+
+Storage as a Service
+
+, Not Selected
+Results for question 4.
+4
+1 / 1 point
+Multiple Choice
+Which of the following is a cloud deployment model?
+
+
+Private
+
+, Not Selected
+
+Public
+
+, Not Selected
+
+Hybrid
+
+, Not Selected
+Correct answer:
+
+All of the above
+
+Results for question 5.
+5
+1 / 1 point
+Multiple Choice
+Which cloud service model provides virtual machines and storage?
+
+
+SaaS
+
+, Not Selected
+
+PaaS
+
+, Not Selected
+Correct answer:
+
+IaaS
+
+
+DaaS
+
+, Not Selected
+Results for question 6.
+6
+1 / 1 point
+Multiple Choice
+What is PaaS primarily used for?
+
+
+Hosting virtual machines
+
+, Not Selected
+Correct answer:
+
+Developing and deploying applications
+
+
+Storing data
+
+, Not Selected
+
+Managing databases
+
+, Not Selected
+Results for question 7.
+7
+1 / 1 point
+Multiple Choice
+Which of the following is an example of SaaS?
+
+
+Microsoft Azure
+
+, Not Selected
+
+Amazon EC2
+
+, Not Selected
+Correct answer:
+
+Google Workspace
+
+
+Kubernetes
+
+, Not Selected
+Results for question 8.
+8
+1 / 1 point
+Multiple Choice
+Which service model provides operating system-level customization?
+
+
+SaaS
+
+, Not Selected
+Correct answer:
+
+IaaS
+
+
+PaaS
+
+, Not Selected
+
+FaaS
+
+, Not Selected
+Results for question 9.
+9
+1 / 1 point
+Multiple Choice
+Which of the following is NOT part of cloud computing?
+
+
+On-demand self-service
+
+, Not Selected
+
+Resource pooling
+
+, Not Selected
+Correct answer:
+
+High maintenance costs
+
+
+Rapid elasticity
+
+, Not Selected
+Results for question 10.
+10
+1 / 1 point
+Multiple Choice
+What are cloud-native applications?
+
+
+Applications built for on-premises systems
+
+, Not Selected
+Correct answer:
+
+Applications designed specifically for cloud environments
+
+
+Legacy applications migrated to the cloud
+
+, Not Selected
+
+None of the above
+
+, Not Selected
+Results for question 11.
+11
+1 / 1 point
+Multiple Choice
+Which of the following is a key principle of cloud-native design?
+
+
+Monolithic architecture
+
+, Not Selected
+Correct answer:
+
+Microservices architecture
+
+
+Manual scaling
+
+, Not Selected
+
+Hardware dependence
+
+, Not Selected
+Results for question 12.
+12
+1 / 1 point
+Multiple Choice
+What is a common characteristic of cloud-native applications?
+
+
+Tightly coupled components
+
+, Not Selected
+Correct answer:
+
+Loose coupling and scalability
+
+
+Dependency on specific hardware
+
+, Not Selected
+
+Infrequent updates
+
+, Not Selected
+Results for question 13.
+13
+1 / 1 point
+Multiple Choice
+What does "stateless" mean in cloud-native applications?
+
+
+Data is stored locally
+
+, Not Selected
+Correct answer:
+
+Applications do not store client state
+
+
+Applications are tied to one server
+
+, Not Selected
+
+Persistent storage is mandatory
+
+, Not Selected
+Results for question 14.
+14
+1 / 1 point
+Multiple Choice
+Which technology is commonly used for managing cloud-native applications?
+
+
+Virtual machines
+
+, Not Selected
+Correct answer:
+
+Kubernetes
+
+
+Mainframes
+
+, Not Selected
+
+Excel
+
+, Not Selected
+Results for question 15.
+15
+1 / 1 point
+Multiple Choice
+Which of the following is NOT a major cloud service provider?
+
+
+AWS
+
+, Not Selected
+
+Microsoft Azure
+
+, Not Selected
+
+Google Cloud
+
+, Not Selected
+Correct answer:
+
+Mozilla Firefox
+
+Results for question 16.
+16
+1 / 1 point
+Multiple Choice
+What service does Amazon S3 provide?
+
+
+Compute services
+
+, Not Selected
+
+Block storage
+
+, Not Selected
+Correct answer:
+
+Object storage
+
+
+Networking
+
+, Not Selected
+Results for question 17.
+17
+1 / 1 point
+Multiple Choice
+What is Azure Storage Containers used for?
+
+
+Networking management
+
+, Not Selected
+
+Database backup
+
+, Not Selected
+Correct answer:
+
+Object storage
+
+
+Storing images
+
+, Not Selected
+Results for question 18.
+18
+1 / 1 point
+Multiple Choice
+What is the purpose of a load balancer in the cloud?
+
+Correct answer:
+
+Distributing traffic across servers
+
+
+Storing logs
+
+, Not Selected
+
+Encrypting network traffic
+
+, Not Selected
+
+Isolating network segments
+
+, Not Selected
+Results for question 19.
+19
+1 / 1 point
+Multiple Choice
+What does "auto-scaling" mean?
+
+
+Automatically scaling servers vertically
+
+, Not Selected
+Correct answer:
+
+Scaling resources in or out based on demand
+
+
+Adding new users automatically
+
+, Not Selected
+
+Automatically creating backups
+
+, Not Selected
+Results for question 20.
+20
+1 / 1 point
+Multiple Choice
+Which of the following is a benefit of cloud-native applications?
+
+
+Vendor lock-in
+
+, Not Selected
+Correct answer:
+
+Scalability
+
+
+Manual updates
+
+, Not Selected
+
+Complex architecture
+
+, Not Selected
+Results for question 21.
+21
+1 / 1 point
+Multiple Choice
+Which term describes software designed to tolerate failures?
+
+Correct answer:
+
+Resilient
+
+
+Monolithic
+
+, Not Selected
+
+Stateful
+
+, Not Selected
+
+Static
+
+, Not Selected
+Results for question 22.
+22
+1 / 1 point
+Multiple Choice
+What does Kubernetes use to define desired states?
+
+
+Configuration files
+
+, Not Selected
+
+Policies
+
+, Not Selected
+Correct answer:
+
+YAML files
+
+
+Docker containers
+
+, Not Selected
+Results for question 23.
+23
+1 / 1 point
+Multiple Choice
+Which of the following describes the essential characteristic of "on-demand self-service" in cloud computing?
+
+Correct answer:
+
+Users can provision resources automatically without human interaction.
+
+
+Resources are always provisioned by IT staff.
+
+, Not Selected
+
+Resources are only available during peak hours.
+
+, Not Selected
+
+Resources must be requested via email.
+
+, Not Selected
+Results for question 24.
+24
+1 / 1 point
+Multiple Choice
+What is the key feature of "rapid elasticity" in cloud computing?
+
+Correct answer:
+
+The ability to expand and shrink resources as needed.
+
+
+The use of physical hardware for all resources.
+
+, Not Selected
+
+A fixed amount of resources for each user.
+
+, Not Selected
+
+Manual scaling by cloud providers.
+
+, Not Selected
+Results for question 25.
+25
+1 / 1 point
+Multiple Choice
+What does "measured service" mean in the context of cloud computing?
+
+
+Users are billed for services based on fixed monthly rates.
+
+, Not Selected
+Correct answer:
+
+Resource usage is monitored, controlled, and reported.
+
+
+Cloud providers measure service quality manually.
+
+, Not Selected
+
+Services are only available during business hours.
+
+, Not Selected
+Results for question 26.
+26
+1 / 1 point
+Multiple Choice
+What kind of access is ensured by "broad network access"?
+
+
+Access only within a specific local area network (LAN)
+
+, Not Selected
+Correct answer:
+
+Access from any location using a variety of devices
+
+
+Restricted access to users in specific regions
+
+, Not Selected
+
+Access limited to specialized equipment
+
+, Not Selected
+Results for question 27.
+27
+1 / 1 point
+Multiple Choice
+Which of the following is a result of "on-demand self-service"?
+
+
+Increased reliance on IT support staff
+
+, Not Selected
+Correct answer:
+
+Reduced time to provision resources
+
+
+Fixed allocation of resources
+
+, Not Selected
+
+Higher upfront costs for hardware
+
+, Not Selected
+Results for question 28.
+28
+1 / 1 point
+Multiple Choice
+Which of the following best describes "resource pooling" in cloud computing?
+
+
+Resources are dedicated to individual users only.
+
+, Not Selected
+Correct answer:
+
+Resources are shared among multiple customers dynamically.
+
+
+Resources are stored in physical silos.
+
+, Not Selected
+
+Resources are distributed manually among customers.
+
+, Not Selected
+Results for question 29.
+29
+1 / 1 point
+Multiple Choice
+What does the "cattle vs. pets" analogy in cloud computing refer to?
+
+Correct answer:
+
+Treating servers as disposable, scalable resources versus treating them as unique and irreplaceable.
+
+
+Comparing physical servers to virtual machines.
+
+, Not Selected
+
+Using on-premises servers versus cloud-based servers.
+
+, Not Selected
+
+Keeping servers in groups versus managing them individually.
+
+, Not Selected
+Results for question 30.
+30
+1 / 1 point
+Multiple Choice
+What is the basic building block of Kubernetes?
+
+Correct answer:
+
+Pod
+
+
+Cluster
+
+, Not Selected
+
+Service
+
+, Not Selected
+
+Namespace
+
+, Not Selected
+Results for question 31.
+31
+1 / 1 point
+Multiple Choice
+What is a Kubernetes cluster composed of?
+
+
+Only worker nodes
+
+, Not Selected
+Correct answer:
+
+Control plane and worker nodes
+
+
+Databases and VMs
+
+, Not Selected
+
+Pods and containers only
+
+, Not Selected
+Results for question 32.
+32
+1 / 1 point
+Multiple Choice
+What does the control plane in Kubernetes manage?
+
+
+Networking hardware
+
+, Not Selected
+
+Node maintenance
+
+, Not Selected
+Correct answer:
+
+Cluster-level decisions and orchestration
+
+
+Backup and recovery
+
+, Not Selected
+Results for question 33.
+33
+1 / 1 point
+Multiple Choice
+What is a namespace in Kubernetes?
+
+
+A container runtime
+
+, Not Selected
+Correct answer:
+
+A way to divide cluster resources among multiple users or teams
+
+
+A network partition
+
+, Not Selected
+
+A command to create a cluster
+
+, Not Selected
+Results for question 34.
+34
+1 / 1 point
+Multiple Choice
+What is kubectl used for?
+
+Correct answer:
+
+Managing Kubernetes clusters from the command line
+
+
+Monitoring hardware resources
+
+, Not Selected
+
+Building Docker images
+
+, Not Selected
+
+Scaling virtual machines
+
+, Not Selected
+Results for question 35.
+35
+1 / 1 point
+Multiple Choice
+What is the command to get a list of all pods in a namespace?
+
+
+kubectl pods list
+
+, Not Selected
+Correct answer:
+
+kubectl get pods
+
+
+kubectl describe namespace
+
+, Not Selected
+
+kubectl config pods
+
+, Not Selected
+Results for question 36.
+36
+1 / 1 point
+Multiple Choice
+How do you create a new deployment in Kubernetes using kubectl?
+
+Correct answer:
+
+kubectl create deployment
+
+
+kubectl apply deployment
+
+, Not Selected
+
+kubectl run deployment
+
+, Not Selected
+
+kubectl new deployment
+
+, Not Selected
+Results for question 37.
+37
+1 / 1 point
+Multiple Choice
+What is a Kubernetes service?
+
+
+A method to create containers
+
+, Not Selected
+Correct answer:
+
+A way to expose an application running on pods
+
+
+A resource that creates persistent storage
+
+, Not Selected
+
+A component of the control plane
+
+, Not Selected
+Results for question 38.
+38
+1 / 1 point
+Multiple Choice
+Which Kubernetes object defines how to deploy and manage pods?
+
+
+Service
+
+, Not Selected
+
+ConfigMap
+
+, Not Selected
+Correct answer:
+
+Deployment
+
+
+Volume
+
+, Not Selected
+Results for question 39.
+39
+1 / 1 point
+Multiple Choice
+Which Kubernetes component is responsible for scheduling pods?
+
+
+Kubelet
+
+, Not Selected
+
+Controller Manager
+
+, Not Selected
+Correct answer:
+
+Scheduler
+
+
+API Server
+
+, Not Selected
+Results for question 40.
+40
+1 / 1 point
+Multiple Choice
+What does a ReplicaSet do?
+
+
+Expose pods externally
+
+, Not Selected
+Correct answer:
+
+Ensure a specified number of pod replicas are running
+
+
+Scale nodes in a cluster
+
+, Not Selected
+
+Manage persistent storage
+
+, Not Selected
+Results for question 41.
+41
+1 / 1 point
+Multiple Choice
+What is the purpose of the Horizontal Pod Autoscaler in Kubernetes?
+
+
+Automatically add nodes to the cluster
+
+, Not Selected
+Correct answer:
+
+Scale pods based on resource utilization
+
+
+Manage control plane components
+
+, Not Selected
+
+Distribute traffic across services
+
+, Not Selected
+Results for question 42.
+42
+1 / 1 point
+Multiple Choice
+How do you delete a pod using kubectl?
+
+Correct answer:
+
+kubectl delete pod <name>
+
+
+kubectl remove pod <name>
+
+, Not Selected
+
+kubectl erase pod <name>
+
+, Not Selected
+
+kubectl purge pod <name>
+
+, Not Selected
+Results for question 43.
+43
+1 / 1 point
+Multiple Choice
+What is the command to view detailed information about a pod?
+
+Correct answer:
+
+kubectl describe pod <name>
+
+
+kubectl get pod <name>
+
+, Not Selected
+
+kubectl log pod <name>
+
+, Not Selected
+
+kubectl inspect pod <name>
+
+, Not Selected
+Results for question 44.
+44
+1 / 1 point
+Multiple Choice
+Which kubectl command is used to apply configuration from a YAML file?
+
+
+kubectl config apply <file>
+
+, Not Selected
+Correct answer:
+
+kubectl apply -f <file>
+
+
+kubectl create yaml <file>
+
+, Not Selected
+
+kubectl deploy yaml <file>
+
+, Not Selected
+Results for question 45.
+45
+1 / 1 point
+Multiple Choice
+Which type of service exposes a pod to external traffic?
+
+
+ClusterIP
+
+, Not Selected
+
+NodePort
+
+, Not Selected
+Correct answer:
+
+LoadBalancer
+
+
+Ingress
+
+, Not Selected
+Results for question 46.
+46
+1 / 1 point
+Multiple Choice
+What is the default type of service in Kubernetes?
+
+
+NodePort
+
+, Not Selected
+Correct answer:
+
+ClusterIP
+
+
+LoadBalancer
+
+, Not Selected
+
+ExternalName
+
+, Not Selected
+Results for question 47.
+47
+1 / 1 point
+Multiple Choice
+What does the kubectl config command manage?
+
+
+Pod replicas
+
+, Not Selected
+Correct answer:
+
+Kubernetes contexts, clusters, and user configurations
+
+
+Storage volumes
+
+, Not Selected
+
+Resource quotas
+
+, Not Selected
+Results for question 48.
+48
+1 / 1 point
+Multiple Choice
+What is the purpose of the kind field in a Kubernetes YAML file?
+
+Correct answer:
+
+To specify the type of Kubernetes resource being created or configured
+
+
+To define the namespace for the resource
+
+, Not Selected
+
+To set the container image
+
+, Not Selected
+
+To control access permissions
+
+, Not Selected
+Results for question 49.
+49
+1 / 1 point
+Multiple Choice
+In a Kubernetes YAML file, what does the spec section define?
+
+
+Metadata about the resource, such as name and labels
+
+, Not Selected
+Correct answer:
+
+The desired state and configuration of the resource
+
+
+The status of the resource
+
+, Not Selected
+
+The API version being used
+
+, Not Selected
+Results for question 50.
+50
+1 / 1 point
+Multiple Choice
+What is the purpose of the metadata field in a Kubernetes YAML file?
+
+Correct answer:
+
+To define labels, annotations, and the name of the resource
+
+
+To specify the container runtime
+
+, Not Selected
+
+To manage resource scaling policies
+
+, Not Selected
+
+To describe the desired state of the resource

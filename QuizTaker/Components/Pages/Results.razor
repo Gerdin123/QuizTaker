@@ -1,0 +1,30 @@
+@page "/results/{RunId:guid}"
+@rendermode InteractiveServer
+@inject QuizSessionService SessionService
+
+<PageTitle>Results</PageTitle>
+
+@if (result is null)
+{
+    <div class="empty-state">
+        <h1>Results not found</h1>
+        <p>Practice results are available only immediately after submitting. Saved quiz and exam results are listed on the home page.</p>
+        <a class="btn btn-primary" href="" data-enhance-nav="false">Home</a>
+    </div>
+}
+else
+{
+    <ResultSummary Result="result" />
+}
+
+@code {
+    [Parameter]
+    public Guid RunId { get; set; }
+
+    private QuizRunResult? result;
+
+    protected override void OnParametersSet()
+    {
+        result = SessionService.GetResult(RunId);
+    }
+}

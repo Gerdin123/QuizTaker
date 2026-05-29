@@ -1,0 +1,917 @@
+1
+1 / 1 point
+Multiple Choice
+What does "idempotence" mean in Infrastructure as Code (IaC)?
+
+
+Applying the code multiple times results in different infrastructure each time
+
+, Not Selected
+
+The infrastructure will always be provisioned manually
+
+, Not Selected
+Correct answer:
+
+Applying the code multiple times results in the same infrastructure state
+
+
+The infrastructure is not affected by code changes
+
+, Not Selected
+Results for question 2.
+2
+1 / 1 point
+Multiple Choice
+What is the role of version control in Infrastructure as Code?
+
+Correct answer:
+
+To ensure all infrastructure changes are tracked and can be rolled back if needed
+
+
+To improve the speed of server provisioning
+
+, Not Selected
+
+To create the infrastructure automatically
+
+, Not Selected
+
+To generate performance metrics for infrastructure
+
+, Not Selected
+Results for question 3.
+3
+1 / 1 point
+Multiple Choice
+What is the main advantage of using IaC with cloud computing?
+
+
+It allows for faster manual provisioning
+
+, Not Selected
+Correct answer:
+
+It provides a consistent environment that can be replicated across any infrastructure
+
+
+It increases the manual configuration workload
+
+, Not Selected
+
+It eliminates the need for automation
+
+, Not Selected
+Results for question 4.
+4
+1 / 1 point
+Multiple Choice
+Which of the following is an important principle of IaC?
+
+
+Infrastructure should be provisioned manually and checked periodically
+
+, Not Selected
+Correct answer:
+
+Infrastructure configuration should be automatically version-controlled and tested
+
+
+Infrastructure should be created once and left unchanged
+
+, Not Selected
+
+Infrastructure should not be treated as code
+
+, Not Selected
+Results for question 5.
+5
+1 / 1 point
+Multiple Choice
+What does "provisioning" refer to in Infrastructure as Code?
+
+
+The manual installation of infrastructure components
+
+, Not Selected
+Correct answer:
+
+Automatically configuring and deploying infrastructure resources
+
+
+The process of tracking resources in a version control system
+
+, Not Selected
+
+Writing custom scripts for resource management
+
+, Not Selected
+Results for question 6.
+6
+1 / 1 point
+Multiple Choice
+Which of the following best describes "immutable infrastructure"?
+
+
+Infrastructure components that are modified after creation
+
+, Not Selected
+Correct answer:
+
+Infrastructure that is designed to be replaced rather than updated
+
+
+Infrastructure that cannot be tracked
+
+, Not Selected
+
+Infrastructure that is updated only manually
+
+, Not Selected
+Results for question 7.
+7
+1 / 1 point
+Multiple Choice
+What is the benefit of using Infrastructure as Code in a DevOps pipeline?
+
+
+It reduces the complexity of infrastructure management
+
+, Not Selected
+Correct answer:
+
+It automates deployment, improving speed and reducing errors
+
+
+It eliminates the need for monitoring infrastructure
+
+, Not Selected
+
+It removes the need for any human involvement in the deployment process
+
+, Not Selected
+Results for question 8.
+8
+1 / 1 point
+Multiple Choice
+Which of the following is a primary feature of Terraform?
+
+
+Network security management
+
+, Not Selected
+Correct answer:
+
+Declarative infrastructure management
+
+
+Application debugging
+
+, Not Selected
+
+Continuous integration
+
+, Not Selected
+Results for question 9.
+9
+1 / 1 point
+Multiple Choice
+What language is Terraform configuration written in?
+
+
+YAML
+
+, Not Selected
+
+JSON
+
+, Not Selected
+Correct answer:
+
+HCL
+
+
+XML
+
+, Not Selected
+Results for question 10.
+10
+0 / 1 point
+Multiple Choice
+What does "terraform init" do?
+
+Incorrect answer:
+
+Initializes a new Terraform module
+
+Correct Answer:
+Initializes the backend and downloads provider plugins
+
+
+Creates the infrastructure
+
+, Not Selected
+
+Initializes the backend and downloads provider plugins
+
+, Not Selected
+
+Validates the configuration
+
+, Not Selected
+Results for question 11.
+11
+0 / 1 point
+Multiple Choice
+Which command is used to apply the configuration in Terraform?
+
+Incorrect answer:
+
+terraform start
+
+Correct Answer:
+terraform apply
+
+
+terraform plan
+
+, Not Selected
+
+terraform deploy
+
+, Not Selected
+
+terraform apply
+
+, Not Selected
+Results for question 12.
+12
+1 / 1 point
+Multiple Choice
+What is the purpose of a Terraform provider?
+
+
+To secure infrastructure resources
+
+, Not Selected
+Correct answer:
+
+To interact with specific cloud platforms or services
+
+
+To validate Terraform code
+
+, Not Selected
+
+To create backups of infrastructure
+
+, Not Selected
+Results for question 13.
+13
+1 / 1 point
+Multiple Choice
+What does the "state" file in Terraform do?
+
+Correct answer:
+
+Tracks the desired state of your infrastructure
+
+
+Stores Terraform logs
+
+, Not Selected
+
+Maintains a backup of configuration files
+
+, Not Selected
+
+Generates random configurations
+
+, Not Selected
+Results for question 14.
+14
+1 / 1 point
+Multiple Choice
+What is the purpose of "terraform destroy"?
+
+
+Validates the configuration
+
+, Not Selected
+Correct answer:
+
+Deletes all resources managed by Terraform
+
+
+Applies configuration changes
+
+, Not Selected
+
+Removes Terraform from the system
+
+, Not Selected
+Results for question 15.
+15
+1 / 1 point
+Multiple Choice
+How does Terraform ensure idempotency?
+
+
+By applying random configurations each time
+
+, Not Selected
+Correct answer:
+
+By using the state file to track resources
+
+
+By requiring manual validation
+
+, Not Selected
+
+By recreating all resources during every run
+
+, Not Selected
+Results for question 16.
+16
+1 / 1 point
+Multiple Choice
+What is a Terraform resource?
+
+
+A physical server
+
+, Not Selected
+Correct answer:
+
+ A single unit of infrastructure management
+
+
+A storage file for state
+
+, Not Selected
+
+A container for configuration
+
+, Not Selected
+Results for question 17.
+17
+1 / 1 point
+Multiple Choice
+What is "terraform output" used for?
+
+
+To create infrastructure
+
+, Not Selected
+Correct answer:
+
+To display values of defined output variables
+
+
+To format configuration files
+
+, Not Selected
+
+To validate syntax
+
+, Not Selected
+Results for question 18.
+18
+1 / 1 point
+Multiple Choice
+What is Continuous Integration (CI)?
+
+Correct answer:
+
+The process of merging code into a shared repository frequently
+
+
+The process of delivering the software to users frequently
+
+, Not Selected
+
+The process of creating documentation
+
+, Not Selected
+
+The process of deploying code to production
+
+, Not Selected
+Results for question 19.
+19
+1 / 1 point
+Multiple Choice
+What is Continuous Delivery (CD)?
+
+
+The process of merging code frequently
+
+, Not Selected
+Correct answer:
+
+The automated process of deploying applications to production environments
+
+
+The automated release of applications to staging environments
+
+, Not Selected
+
+The manual process of deploying code
+
+, Not Selected
+Results for question 20.
+20
+1 / 1 point
+Multiple Choice
+What is the main goal of CI/CD?
+
+
+To deliver documentation and code together
+
+, Not Selected
+Correct answer:
+
+To reduce the time between writing code and deploying it
+
+
+To handle only production deployments
+
+, Not Selected
+
+To eliminate all testing procedures
+
+, Not Selected
+Results for question 21.
+21
+1 / 1 point
+Multiple Choice
+Which GitHub feature is used for automating workflows such as CI/CD?
+
+
+GitHub Issues
+
+, Not Selected
+Correct answer:
+
+GitHub Actions
+
+
+GitHub Pages
+
+, Not Selected
+
+GitHub Projects
+
+, Not Selected
+Results for question 22.
+22
+1 / 1 point
+Multiple Choice
+What is a "workflow" in GitHub Actions?
+
+
+A template for creating issues
+
+, Not Selected
+Correct answer:
+
+A set of steps that automate a process in your repository
+
+
+A container for multiple repositories
+
+, Not Selected
+
+A method for deploying applications manually
+
+, Not Selected
+Results for question 23.
+23
+1 / 1 point
+Multiple Choice
+In GitHub Actions, what file is used to define workflows?
+
+
+.gitignore
+
+, Not Selected
+Correct answer:
+
+.github/workflows/ci.yml
+
+
+README.md
+
+, Not Selected
+
+.github/config.yml
+
+, Not Selected
+Results for question 24.
+24
+1 / 1 point
+Multiple Choice
+Which GitHub Action trigger is used to run workflows when code is pushed to a branch?
+
+Correct answer:
+
+push
+
+
+pull_request
+
+, Not Selected
+
+workflow_dispatch
+
+, Not Selected
+
+run
+
+, Not Selected
+Results for question 25.
+25
+1 / 1 point
+Multiple Choice
+What is the role of a "job" in a GitHub Actions workflow?
+
+
+A set of code that needs to be pushed
+
+, Not Selected
+Correct answer:
+
+A series of steps executed on a specified runner
+
+
+A unit of work performed by a contributor
+
+, Not Selected
+
+A description of a workflow
+
+, Not Selected
+Results for question 26.
+26
+1 / 1 point
+Multiple Choice
+Which of the following best describes a "step" in a GitHub Actions workflow?
+
+
+A version of the repository
+
+, Not Selected
+Correct answer:
+
+An individual task that runs commands in a job
+
+
+A description of the repository's files
+
+, Not Selected
+
+A schedule for executing actions
+
+, Not Selected
+Results for question 27.
+27
+1 / 1 point
+Multiple Choice
+What is the purpose of a "runner" in GitHub Actions?
+
+
+It stores the repository's code
+
+, Not Selected
+
+It defines the tests that will run
+
+, Not Selected
+Correct answer:
+
+It executes the jobs in a workflow
+
+
+It manages user permissions
+
+, Not Selected
+Results for question 28.
+28
+1 / 1 point
+Multiple Choice
+How can a GitHub Action be triggered manually?
+
+
+By creating a new branch
+
+, Not Selected
+
+By editing the repository's README.md
+
+, Not Selected
+Correct answer:
+
+By using the workflow_dispatch event
+
+
+By opening a pull request
+
+, Not Selected
+Results for question 29.
+29
+0 / 1 point
+Multiple Choice
+Which of the following is a commonly used action in a GitHub Actions workflow?
+
+
+checkout
+
+, Not Selected
+
+initialize
+
+, Not Selected
+Incorrect answer:
+
+deploy
+
+Correct Answer:
+checkout
+
+
+sync
+
+, Not Selected
+Results for question 30.
+30
+0 / 1 point
+Multiple Choice
+What is the purpose of the uses keyword in a GitHub Actions workflow?
+
+Incorrect answer:
+
+It specifies a custom runner to use
+
+Correct Answer:
+It defines a reusable action or script to run
+
+
+It triggers a manual action
+
+, Not Selected
+
+It defines a reusable action or script to run
+
+, Not Selected
+
+It manages the version control system
+
+, Not Selected
+Results for question 31.
+31
+1 / 1 point
+Multiple Choice
+What happens if a job fails in GitHub Actions?
+
+
+The workflow continues to the next job
+
+, Not Selected
+Correct answer:
+
+The entire workflow fails by default
+
+
+GitHub ignores the failure and continues
+
+, Not Selected
+
+The workflow will restart automatically
+
+, Not Selected
+Results for question 32.
+32
+0 / 1 point
+Multiple Choice
+What is an "artifact" in the context of CI/CD?
+
+
+The source code used to build the project
+
+, Not Selected
+
+The compiled output from a build process
+
+, Not Selected
+Incorrect answer:
+
+The documentation files generated during testing
+
+Correct Answer:
+The compiled output from a build process
+
+
+ The database used by the application
+
+, Not Selected
+Results for question 33.
+33
+0 / 1 point
+Multiple Choice
+In Continuous Integration, when should code be integrated?
+
+
+Once a week
+
+, Not Selected
+Incorrect answer:
+
+Whenever the team is ready
+
+Correct Answer:
+Frequently, at least once a day
+
+
+Frequently, at least once a day
+
+, Not Selected
+
+Only before major releases
+
+, Not Selected
+Results for question 34.
+34
+1 / 1 point
+Multiple Choice
+What is the main benefit of Continuous Delivery (CD)?
+
+
+It allows for faster integration
+
+, Not Selected
+Correct answer:
+
+It ensures that the application can be deployed to production at any time
+
+
+It only tests code but does not deploy
+
+, Not Selected
+
+It reduces the cost of testing
+
+, Not Selected
+Results for question 35.
+35
+1 / 1 point
+Multiple Choice
+What type of testing is commonly part of a CI pipeline?
+
+
+Manual integration testing
+
+, Not Selected
+
+Static analysis
+
+, Not Selected
+Correct answer:
+
+Unit testing and integration testing
+
+
+Production testing
+
+, Not Selected
+Results for question 36.
+36
+1 / 1 point
+Multiple Choice
+What does the term "rolling deployment" mean in Continuous Delivery?
+
+
+Deploying the entire application all at once
+
+, Not Selected
+Correct answer:
+
+Gradually releasing new changes to users without downtime
+
+
+Deploying new versions only to specific servers
+
+, Not Selected
+
+Rolling back deployments after failures
+
+, Not Selected
+Results for question 37.
+37
+1 / 1 point
+Multiple Choice
+What is a "blue-green deployment"?
+
+
+The process of testing blueprints before deployment
+
+, Not Selected
+Correct answer:
+
+A method of switching between two identical production environments for zero downtime
+
+
+A process for rolling back deployments quickly
+
+, Not Selected
+
+A method to handle load balancing across multiple servers
+
+, Not Selected
+Results for question 38.
+38
+1 / 1 point
+Multiple Choice
+How can you define environment variables in a GitHub Actions workflow?
+
+Correct answer:
+
+Using the env key
+
+
+In the jobs section
+
+, Not Selected
+
+Through the GitHub UI only
+
+, Not Selected
+
+By defining them in the README.md
+
+, Not Selected
+Results for question 39.
+39
+1 / 1 point
+Multiple Choice
+What is the purpose of "secret management" in CI/CD?
+
+
+To provide random values for each build
+
+, Not Selected
+Correct answer:
+
+To manage sensitive data such as passwords and API tokens securely
+
+
+To store all public configuration
+
+, Not Selected
+
+To share environment variables across teams
+
+, Not Selected
+Results for question 40.
+40
+1 / 1 point
+Multiple Choice
+What is a "deployment pipeline" in CI/CD?
+
+
+A version control tool
+
+, Not Selected
+Correct answer:
+
+A series of automated steps that move code from development to production
+
+
+A manual procedure for deploying code
+
+, Not Selected
+
+A testing framework for unit tests
+
+, Not Selected
+Results for question 41.
+41
+1 / 1 point
+Multiple Choice
+What is a primary benefit of using GitHub Actions in a CI/CD pipeline?
+
+
+It simplifies deployment but not testing
+
+, Not Selected
+Correct answer:
+
+It enables the automation of both CI and CD workflows directly within GitHub
+
+
+It automatically configures servers for production
+
+, Not Selected
+
+It removes the need for manual testing

@@ -1,0 +1,987 @@
+1
+1 / 1 point
+Multiple Choice
+What is the primary goal of DevOps?
+
+
+To reduce software complexity
+
+, Not Selected
+Correct answer:
+
+To improve collaboration and efficiency between development and operations teams
+
+
+To outsource IT services
+
+, Not Selected
+
+To automate all testing processes
+
+, Not Selected
+Results for question 2.
+2
+1 / 1 point
+Multiple Choice
+Which of the following best describes DevOps?
+
+
+A cloud hosting service
+
+, Not Selected
+
+A database management methodology
+
+, Not Selected
+Correct answer:
+
+A set of practices that integrates development and operations to deliver software faster
+
+
+A programming language used for building scalable applications
+
+, Not Selected
+Results for question 3.
+3
+1 / 1 point
+Multiple Choice
+What does the term "continuous delivery" in DevOps mean?
+
+
+Delivering software updates only once a year
+
+, Not Selected
+Correct answer:
+
+Automating the delivery of changes to production or a staging environment
+
+
+Releasing changes manually to end-users
+
+, Not Selected
+
+Using containers to host applications
+
+, Not Selected
+Results for question 4.
+4
+1 / 1 point
+Multiple Choice
+Which of the following is NOT a core principle of DevOps?
+
+
+Continuous integration
+
+, Not Selected
+
+Frequent collaboration between teams
+
+, Not Selected
+Correct answer:
+
+Manual testing for every release
+
+
+Infrastructure as code
+
+, Not Selected
+Results for question 5.
+5
+1 / 1 point
+Multiple Choice
+What is "Infrastructure as Code" in the context of DevOps?
+
+
+Writing all application logic in a single programming language
+
+, Not Selected
+Correct answer:
+
+Managing and provisioning infrastructure through machine-readable configuration files
+
+
+ Using code to automate software builds and deployments
+
+, Not Selected
+
+Configuring servers manually to ensure flexibility
+
+, Not Selected
+Results for question 6.
+6
+1 / 1 point
+Multiple Choice
+Which of the following is a characteristic of a successful DevOps culture?
+
+
+Silos between teams
+
+, Not Selected
+
+Blame-oriented environment
+
+, Not Selected
+Correct answer:
+
+Shared responsibility and ownership
+
+
+Minimal automation
+
+, Not Selected
+Results for question 7.
+7
+1 / 1 point
+Multiple Choice
+Which of the following best describes continuous integration?
+
+
+Manually testing code after deployment
+
+, Not Selected
+Correct answer:
+
+Integrating code into a shared repository several times a day to detect issues early
+
+
+Automating the deployment of infrastructure
+
+, Not Selected
+
+Hosting applications on multiple cloud platforms
+
+, Not Selected
+Results for question 8.
+8
+1 / 1 point
+Multiple Choice
+What is the primary purpose of automation in DevOps?
+
+
+To eliminate the need for skilled personnel
+
+, Not Selected
+
+To reduce costs by minimizing hardware use
+
+, Not Selected
+Correct answer:
+
+To streamline repetitive tasks and improve efficiency
+
+
+To make software development slower but more reliable
+
+, Not Selected
+Results for question 9.
+9
+1 / 1 point
+Multiple Choice
+When did the term "DevOps" first gain popularity?
+
+
+2005
+
+, Not Selected
+Correct answer:
+
+2009
+
+
+2013
+
+, Not Selected
+
+ 2017
+
+, Not Selected
+Results for question 10.
+10
+1 / 1 point
+Multiple Choice
+Which conference is credited with popularizing the term "DevOps"?
+
+
+Agile Conference
+
+, Not Selected
+Correct answer:
+
+DevOps Days
+
+
+Cloud Foundry Summit
+
+, Not Selected
+
+Continuous Delivery Forum
+
+, Not Selected
+Results for question 11.
+11
+1 / 1 point
+Multiple Choice
+What inspired the DevOps movement?
+
+
+The need for better collaboration between sales and marketing teams
+
+, Not Selected
+Correct answer:
+
+Frustration with slow and inefficient software delivery processes
+
+
+The rise of personal computers
+
+, Not Selected
+
+The development of cloud gaming technologies
+
+, Not Selected
+Results for question 12.
+12
+1 / 1 point
+Multiple Choice
+Which cultural methodology significantly influenced the DevOps movement?
+
+
+Scrum
+
+, Not Selected
+Correct answer:
+
+Agile
+
+
+Kanban
+
+, Not Selected
+
+Waterfall
+
+, Not Selected
+Results for question 13.
+13
+1 / 1 point
+Multiple Choice
+Who is often credited with coining the term "DevOps"?
+
+Correct answer:
+
+Patrick Debois
+
+
+Gene Kim
+
+, Not Selected
+
+Jez Humble
+
+, Not Selected
+
+Martin Fowler
+
+, Not Selected
+Results for question 14.
+14
+1 / 1 point
+Multiple Choice
+What was a major factor that led to the rise of DevOps?
+
+
+The invention of cloud computing
+
+, Not Selected
+Correct answer:
+
+The desire to align IT operations with business goals
+
+
+The popularity of open-source software
+
+, Not Selected
+
+The decline of mainframe computers
+
+, Not Selected
+Results for question 15.
+15
+1 / 1 point
+Multiple Choice
+Which book significantly contributed to the DevOps movement by outlining continuous delivery practices?
+
+
+"The Lean Startup" by Eric Ries
+
+, Not Selected
+Correct answer:
+
+"Continuous Delivery" by Jez Humble and David Farley
+
+
+"The Mythical Man-Month" by Fred Brooks
+
+, Not Selected
+
+"Clean Code" by Robert C. Martin
+
+, Not Selected
+Results for question 16.
+16
+1 / 1 point
+Multiple Choice
+What key problem did DevOps aim to solve that was left unaddressed by Agile methodologies?
+
+
+Lack of customer feedback
+
+, Not Selected
+Correct answer:
+
+Poor collaboration between development and operations teams
+
+
+ Inconsistent coding standards
+
+, Not Selected
+
+ Limited support for mobile development
+
+, Not Selected
+Results for question 17.
+17
+1 / 1 point
+Multiple Choice
+Which DevOps practice was heavily inspired by Toyota's lean manufacturing principles?
+
+
+Continuous delivery
+
+, Not Selected
+
+Infrastructure as code
+
+, Not Selected
+Correct answer:
+
+Value stream mapping
+
+
+Automated testing
+
+, Not Selected
+Results for question 18.
+18
+1 / 1 point
+Multiple Choice
+What technological advancements helped accelerate the adoption of DevOps?
+
+
+Emergence of NoSQL databases and GPUs
+
+, Not Selected
+Correct answer:
+
+Virtualization, containerization, and cloud computing
+
+
+Development of social media platforms
+
+, Not Selected
+
+Introduction of machine learning algorithms
+
+, Not Selected
+Results for question 19.
+19
+1 / 1 point
+Multiple Choice
+What is the primary goal of social coding in DevOps?
+
+
+To reduce software complexity
+
+, Not Selected
+Correct answer:
+
+To encourage collaboration and knowledge sharing among developers
+
+
+To enforce strict coding standards
+
+, Not Selected
+
+To improve machine learning models
+
+, Not Selected
+Results for question 20.
+20
+1 / 1 point
+Multiple Choice
+Which platform is most associated with social coding?
+
+
+Jenkins
+
+, Not Selected
+Correct answer:
+
+GitHub
+
+
+Docker Hub
+
+, Not Selected
+
+AWS
+
+, Not Selected
+Results for question 21.
+21
+1 / 1 point
+Multiple Choice
+What is a key benefit of code reviews in social coding?
+
+
+Faster deployment to production
+
+, Not Selected
+Correct answer:
+
+ Improved code quality and knowledge transfer
+
+
+Reduced need for testing
+
+, Not Selected
+
+Increased reliance on a single developer
+
+, Not Selected
+Results for question 22.
+22
+1 / 1 point
+Multiple Choice
+What practice in social coding helps prevent “knowledge silos”?
+
+
+Test automation
+
+, Not Selected
+Correct answer:
+
+Pair programming
+
+
+Manual deployments
+
+, Not Selected
+
+Dedicated server ownership
+
+, Not Selected
+Results for question 23.
+23
+1 / 1 point
+Multiple Choice
+Why is working in small batches encouraged in DevOps?
+
+
+It reduces collaboration time between teams
+
+, Not Selected
+Correct answer:
+
+It allows faster identification and resolution of issues
+
+
+It requires less automation
+
+, Not Selected
+
+It eliminates the need for deployment pipelines
+
+, Not Selected
+Results for question 24.
+24
+1 / 1 point
+Multiple Choice
+Which practice is aligned with working in small batches?
+
+
+Monolithic releases
+
+, Not Selected
+Correct answer:
+
+Continuous integration and delivery
+
+
+Waterfall methodology
+
+, Not Selected
+
+Manual testing
+
+, Not Selected
+Results for question 25.
+25
+1 / 1 point
+Multiple Choice
+What is a disadvantage of working with large batches?
+
+
+It simplifies version control
+
+, Not Selected
+Correct answer:
+
+It makes deployments slower and riskier
+
+
+It requires fewer tools
+
+, Not Selected
+
+It reduces the need for communication
+
+, Not Selected
+Results for question 26.
+26
+1 / 1 point
+Multiple Choice
+What concept is closely related to working in small batches?
+
+Correct answer:
+
+Iterative development
+
+
+Big Bang Deployment
+
+, Not Selected
+
+Long-term planning
+
+, Not Selected
+
+Manual configuration management
+
+, Not Selected
+Results for question 27.
+27
+1 / 1 point
+Multiple Choice
+What is the primary purpose of an MVP in DevOps?
+
+
+To test all features of a product in the first release
+
+, Not Selected
+Correct answer:
+
+To gather customer feedback with minimal effort
+
+
+To deploy a fully functional application
+
+, Not Selected
+
+To create a detailed project plan
+
+, Not Selected
+Results for question 28.
+28
+1 / 1 point
+Multiple Choice
+Which of the following best describes an MVP?
+
+
+A fully polished and complete product
+
+, Not Selected
+Correct answer:
+
+The smallest version of a product that can still deliver value
+
+
+A prototype for internal use only
+
+, Not Selected
+
+A product with no functionality but good design
+
+, Not Selected
+Results for question 29.
+29
+1 / 1 point
+Multiple Choice
+Which methodology is most closely aligned with the concept of MVP?
+
+Correct answer:
+
+Agile
+
+
+Waterfall
+
+, Not Selected
+
+Big Bang
+
+, Not Selected
+
+Spiral
+
+, Not Selected
+Results for question 30.
+30
+1 / 1 point
+Multiple Choice
+What is a key risk of skipping the MVP stage in development?
+
+
+Lack of automated testing
+
+, Not Selected
+Correct answer:
+
+Overengineering a product that doesn't meet user needs
+
+
+Delivering value too early
+
+, Not Selected
+
+Not enough time for coding
+
+, Not Selected
+Results for question 31.
+31
+1 / 1 point
+Multiple Choice
+What is the first step in Test-Driven Development?
+
+
+Writing the code
+
+, Not Selected
+Correct answer:
+
+Writing a failing test
+
+
+Refactoring the code
+
+, Not Selected
+
+Deploying to production
+
+, Not Selected
+Results for question 32.
+32
+1 / 1 point
+Multiple Choice
+Which is a key benefit of TDD?
+
+
+Faster manual testing
+
+, Not Selected
+Correct answer:
+
+ Improved code maintainability and fewer defects
+
+
+ Increased deployment time
+
+, Not Selected
+
+Better UI/UX design
+
+, Not Selected
+Results for question 33.
+33
+1 / 1 point
+Multiple Choice
+What happens after writing a failing test in TDD?
+
+Correct answer:
+
+Writing code to make the test pass
+
+
+Deploying the test to staging
+
+, Not Selected
+
+Writing additional tests
+
+, Not Selected
+
+Merging the code without testing
+
+, Not Selected
+Results for question 34.
+34
+1 / 1 point
+Multiple Choice
+Which principle aligns with TDD?
+
+
+Code first, test later
+
+, Not Selected
+Correct answer:
+
+Test first, code to pass, then refactor
+
+
+Manual debugging
+
+, Not Selected
+
+Writing tests only for critical features
+
+, Not Selected
+Results for question 35.
+35
+1 / 1 point
+Multiple Choice
+What is the main focus of Behavior-Driven Development?
+
+
+Writing tests that focus on code efficiency
+
+, Not Selected
+Correct answer:
+
+Defining application behavior in plain language
+
+
+Automating infrastructure deployment
+
+, Not Selected
+
+Writing test cases after code is complete
+
+, Not Selected
+Results for question 36.
+36
+1 / 1 point
+Multiple Choice
+Which of the following tools is commonly used for BDD?
+
+
+ JUnit
+
+, Not Selected
+Correct answer:
+
+Cucumber
+
+
+Jenkins
+
+, Not Selected
+
+Kubernetes
+
+, Not Selected
+Results for question 37.
+37
+1 / 1 point
+Multiple Choice
+What is a key difference between TDD and BDD?
+
+
+BDD focuses on technical code; TDD focuses on behavior
+
+, Not Selected
+
+TDD emphasizes developer communication; BDD emphasizes stakeholder communication
+
+, Not Selected
+Correct answer:
+
+BDD uses plain language to describe tests; TDD uses unit tests
+
+
+TDD requires automation; BDD requires manual execution
+
+, Not Selected
+Results for question 38.
+38
+1 / 1 point
+Multiple Choice
+In BDD, what is typically used to define application behaviors?
+
+
+UML diagrams
+
+, Not Selected
+Correct answer:
+
+Gherkin syntax
+
+
+Java code
+
+, Not Selected
+
+YAML configuration files
+
+, Not Selected
+Results for question 39.
+39
+1 / 1 point
+Multiple Choice
+What is a defining characteristic of cloud-native microservices?
+
+
+Centralized databases
+
+, Not Selected
+Correct answer:
+
+Decentralized, independently deployable services
+
+
+Dependence on monolithic architecture
+
+, Not Selected
+
+Lack of scalability
+
+, Not Selected
+Results for question 40.
+40
+1 / 1 point
+Multiple Choice
+Which tool is most commonly associated with managing microservices?
+
+Correct answer:
+
+Docker
+
+
+Photoshop
+
+, Not Selected
+
+Excel
+
+, Not Selected
+
+AutoCAD
+
+, Not Selected
+Results for question 41.
+41
+1 / 1 point
+Multiple Choice
+What is a primary benefit of using microservices?
+
+Correct answer:
+
+Easier to scale and deploy applications
+
+
+Reduced need for automation
+
+, Not Selected
+
+Decreased testing requirements
+
+, Not Selected
+
+Easier to implement without DevOps practices
+
+, Not Selected
+Results for question 42.
+42
+1 / 1 point
+Multiple Choice
+What does "designing for failure" mean in DevOps?
+
+Correct answer:
+
+Building systems that can gracefully handle unexpected issues
+
+
+Intentionally creating bugs to test resilience
+
+, Not Selected
+
+Ignoring failures in production
+
+, Not Selected
+
+Avoiding redundancy in architecture
+
+, Not Selected
+Results for question 43.
+43
+1 / 1 point
+Multiple Choice
+What is a common practice in designing for failure?
+
+Correct answer:
+
+Using Chaos Engineering to simulate failures
+
+
+Eliminating all backup systems
+
+, Not Selected
+
+Avoiding monitoring tools
+
+, Not Selected
+
+Disabling error logging
+
+, Not Selected
+Results for question 44.
+44
+1 / 1 point
+Multiple Choice
+What is the main advantage of designing for failure?
+
+
+Increased system downtime
+
+, Not Selected
+Correct answer:
+
+Higher system resilience and reliability
+
+
+Reduced development costs
+
+, Not Selected
+
+Easier manual intervention
+
+, Not Selected
+Results for question 45.
+45
+1 / 1 point
+Multiple Choice
+Which of the following is a key component of designing for failure?
+
+
+Continuous delivery
+
+, Not Selected
+Correct answer:
+
+Redundancy and failover mechanisms
+
+
+Manual scaling
+
+, Not Selected
+
+Waterfall methodologies
