@@ -1,28 +1,52 @@
 (() => {
     const storageKey = "quiztaker-theme";
+    const themes = [
+        "blue-light",
+        "blue-dark",
+        "gray-light",
+        "gray-dark",
+        "rose-light",
+        "rose-dark",
+        "violet-light",
+        "violet-dark",
+        "forest-light",
+        "forest-dark"
+    ];
+    const aliases = {
+        light: "blue-light",
+        dark: "blue-dark",
+        gray: "gray-light",
+        rose: "rose-light",
+        violet: "violet-dark",
+        forest: "forest-dark"
+    };
 
     function normalize(theme) {
-        return theme === "dark" ? "dark" : "light";
+        const nextTheme = aliases[theme] ?? theme;
+        return themes.includes(nextTheme) ? nextTheme : "blue-light";
     }
 
     function preferredTheme() {
         const storedTheme = localStorage.getItem(storageKey);
-        if (storedTheme === "dark" || storedTheme === "light") {
-            return storedTheme;
+        if (themes.includes(storedTheme) || aliases[storedTheme]) {
+            return normalize(storedTheme);
         }
 
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "blue-dark" : "blue-light";
     }
 
     function apply(theme) {
         const nextTheme = normalize(theme);
         document.documentElement.dataset.theme = nextTheme;
-        document.documentElement.classList.toggle("theme-dark", nextTheme === "dark");
-        document.documentElement.classList.toggle("theme-light", nextTheme === "light");
+        for (const themeName of themes) {
+            document.documentElement.classList.toggle(`theme-${themeName}`, nextTheme === themeName);
+        }
+
         if (document.body) {
             document.body.dataset.theme = nextTheme;
-            document.body.classList.toggle("theme-dark", nextTheme === "dark");
-            document.body.classList.toggle("theme-light", nextTheme === "light");
+            for (const themeName of themes) {
+                document.body.classList.toggle(`theme-${themeName}`, nextTheme === themeName);
+            }
         }
 
         return nextTheme;

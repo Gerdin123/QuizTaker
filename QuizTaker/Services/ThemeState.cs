@@ -4,13 +4,27 @@ public sealed class ThemeState
 {
     public event Action? Changed;
 
-    public string CurrentTheme { get; private set; } = "light";
+    private static readonly HashSet<string> Themes =
+    [
+        "blue-light",
+        "blue-dark",
+        "gray-light",
+        "gray-dark",
+        "rose-light",
+        "rose-dark",
+        "violet-light",
+        "violet-dark",
+        "forest-light",
+        "forest-dark"
+    ];
 
-    public string CssClass => CurrentTheme == "dark" ? "theme-dark" : "theme-light";
+    public string CurrentTheme { get; private set; } = "blue-light";
+
+    public string CssClass => $"theme-{CurrentTheme}";
 
     public void SetTheme(string theme)
     {
-        var nextTheme = theme == "dark" ? "dark" : "light";
+        var nextTheme = Normalize(theme);
         if (CurrentTheme == nextTheme)
         {
             return;
@@ -18,5 +32,20 @@ public sealed class ThemeState
 
         CurrentTheme = nextTheme;
         Changed?.Invoke();
+    }
+
+    private static string Normalize(string theme)
+    {
+        return theme switch
+        {
+            "light" => "blue-light",
+            "dark" => "blue-dark",
+            "gray" => "gray-light",
+            "rose" => "rose-light",
+            "violet" => "violet-dark",
+            "forest" => "forest-dark",
+            _ when Themes.Contains(theme) => theme,
+            _ => "blue-light"
+        };
     }
 }

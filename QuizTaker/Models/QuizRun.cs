@@ -19,6 +19,8 @@ public sealed class QuizRun
 
     public string SourceSummary { get; init; } = string.Empty;
 
+    public DateTimeOffset StartedAt { get; init; } = DateTimeOffset.UtcNow;
+
     public bool ShouldSaveScore => Mode is QuizRunMode.Quiz or QuizRunMode.Exam;
 
     public List<QuizQuestion> Questions { get; init; } = [];
@@ -42,6 +44,8 @@ public sealed class QuizRunResult
     public bool ScoreSaved { get; init; }
 
     public int? SavedAttemptId { get; init; }
+
+    public TimeSpan Duration { get; init; }
 
     public List<QuizRunAnswer> Answers { get; init; } = [];
 

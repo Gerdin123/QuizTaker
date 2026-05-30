@@ -10,9 +10,11 @@ QuizTaker is a single-project Blazor Server app for taking saved quiz questions,
 - Lets users take a single quiz and saves the score.
 - Lets users combine quizzes from the same course/topic as an unsaved practice test.
 - Provides a dedicated exam page where quizzes are selected by default and each quiz defaults to 10 exam questions.
+- Highlights the selected answer row while taking a quiz, combined practice test, or exam.
+- Shows elapsed time and answered count above the question list while taking a quiz, combined practice test, or exam.
 - Shows result summaries with correct count, percentage, and answer review.
 - Saves quiz and exam attempts with EF Core and SQLite.
-- Includes light and dark themes with persisted theme preference.
+- Includes multiple persisted color themes, each with explicit light and dark variants.
 - Uses a custom app shell instead of the default Blazor template UI.
 
 ## Project Structure
@@ -52,7 +54,7 @@ This produces:
 - Course/topic `DevOps` for files under `Quizzes/DevOps`.
 - Course/topic `Other` for `Some root quiz.txt`.
 
-The app currently parses copied multiple-choice quiz result text that includes question numbers, `Multiple Choice`, answer options, and `Correct answer:` markers.
+The app currently parses copied multiple-choice quiz result text that includes question numbers, `Multiple Choice`, answer options, and `Correct answer:` markers. It also filters copied result feedback markers such as `Incorrect answer:` so they are not shown as answer choices.
 
 ## Run
 
@@ -81,6 +83,9 @@ Home page:
 - In combined selection mode, all quizzes for that course are selected by default.
 - Click quiz cards to include or exclude them.
 - Combined tests are practice only and are not saved.
+- The take page shows elapsed time and answered count above the questions.
+- Selected answers are highlighted across the full answer row.
+- The submit button is at the end of the page instead of sticky.
 
 Exam page:
 
@@ -90,16 +95,28 @@ Exam page:
 - Click quiz cards to include or exclude them.
 - Exam scores are saved.
 
-## Theme
+## Themes
 
-The app supports light and dark mode.
+The app supports these themes:
+
+- Blue Light
+- Blue Dark
+- Grey Light
+- Grey Dark
+- Pink Light
+- Pink Dark
+- Purple Light
+- Purple Dark
+- Forest Light
+- Forest Dark
 
 - The selected theme is stored in browser `localStorage` under `quiztaker-theme`.
 - `Components/ThemeToggle.razor` controls the UI state.
 - `Services/ThemeState.cs` keeps the Blazor layout theme state.
 - `wwwroot/theme.js` applies the saved browser theme before render.
+- Older saved values such as `light`, `dark`, `gray`, `rose`, `violet`, and `forest` are mapped to the closest current theme.
 
-App links opt out of Blazor enhanced navigation with `data-enhance-nav="false"`. This is intentional: enhanced navigation was replacing page markup before the saved theme was reapplied, causing dark mode to visually reset until a manual refresh.
+App links opt out of Blazor enhanced navigation with `data-enhance-nav="false"`. This is intentional: enhanced navigation was replacing page markup before the saved theme was reapplied, causing the active theme to visually reset until a manual refresh.
 
 ## Data
 

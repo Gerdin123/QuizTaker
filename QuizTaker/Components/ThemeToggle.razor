@@ -2,21 +2,30 @@
 @inject IJSRuntime JS
 @inject ThemeState ThemeState
 
-<button class="theme-toggle"
-        type="button"
-        title="@ButtonTitle"
-        aria-label="@ButtonTitle"
-        @onclick="ToggleThemeAsync">
-    <span class="theme-toggle-icon" aria-hidden="true">@Icon</span>
-    <span>@Label</span>
-</button>
+<label class="theme-picker">
+    <span>Theme</span>
+    <select value="@ThemeState.CurrentTheme" @onchange="ChangeThemeAsync" aria-label="Theme">
+        @foreach (var theme in Themes)
+        {
+            <option value="@theme.Value">@theme.Label</option>
+        }
+    </select>
+</label>
 
 @code {
-    private string Icon => ThemeState.CurrentTheme == "dark" ? "D" : "L";
-
-    private string Label => ThemeState.CurrentTheme == "dark" ? "Dark" : "Light";
-
-    private string ButtonTitle => ThemeState.CurrentTheme == "dark" ? "Switch to light mode" : "Switch to dark mode";
+    private static readonly (string Value, string Label)[] Themes =
+    [
+        ("blue-light", "Blue Light"),
+        ("blue-dark", "Blue Dark"),
+        ("gray-light", "Grey Light"),
+        ("gray-dark", "Grey Dark"),
+        ("rose-light", "Pink Light"),
+        ("rose-dark", "Pink Dark"),
+        ("violet-light", "Purple Light"),
+        ("violet-dark", "Purple Dark"),
+        ("forest-light", "Forest Light"),
+        ("forest-dark", "Forest Dark")
+    ];
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -29,9 +38,9 @@
         ThemeState.SetTheme(theme);
     }
 
-    private async Task ToggleThemeAsync()
+    private async Task ChangeThemeAsync(ChangeEventArgs eventArgs)
     {
-        var nextTheme = ThemeState.CurrentTheme == "dark" ? "light" : "dark";
+        var nextTheme = Convert.ToString(eventArgs.Value) ?? "light";
         var theme = await JS.InvokeAsync<string>("quizTakerTheme.set", nextTheme);
         ThemeState.SetTheme(theme);
     }

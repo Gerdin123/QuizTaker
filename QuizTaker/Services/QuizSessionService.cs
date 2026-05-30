@@ -72,6 +72,8 @@ public sealed class QuizSessionService(IServiceScopeFactory scopeFactory)
                 question,
                 selectedAnswers.TryGetValue(question.Id, out var selectedAnswer) ? selectedAnswer : null))
             .ToList();
+        var completedAt = DateTimeOffset.UtcNow;
+        var duration = completedAt - run.StartedAt;
 
         int? attemptId = null;
         if (run.ShouldSaveScore)
@@ -86,7 +88,7 @@ public sealed class QuizSessionService(IServiceScopeFactory scopeFactory)
                 SourceSummary = run.SourceSummary,
                 CorrectCount = answers.Count(answer => answer.IsCorrect),
                 TotalQuestions = answers.Count,
-                CompletedAt = DateTimeOffset.UtcNow,
+                CompletedAt = completedAt,
                 Answers = answers.Select(answer => new QuizAttemptAnswer
                 {
                     SourceQuizTitle = answer.Question.QuizTitle,
@@ -110,6 +112,7 @@ public sealed class QuizSessionService(IServiceScopeFactory scopeFactory)
             Title = run.Title,
             ScoreSaved = run.ShouldSaveScore,
             SavedAttemptId = attemptId,
+            Duration = duration,
             Answers = answers
         };
 

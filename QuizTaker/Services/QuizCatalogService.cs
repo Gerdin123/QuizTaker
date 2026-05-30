@@ -112,7 +112,7 @@ public sealed partial class QuizCatalogService(IWebHostEnvironment environment)
 
         var options = block
             .Skip(typeIndex + 1)
-            .Where(line => !line.Equals("Correct answer:", StringComparison.OrdinalIgnoreCase))
+            .Where(line => !IsAnswerFeedbackMarker(line))
             .Where(line => !line.Equals(", Not Selected", StringComparison.OrdinalIgnoreCase))
             .Where(line => !line.StartsWith("Results for question ", StringComparison.OrdinalIgnoreCase))
             .Where(line => !line.Equals(questionText, StringComparison.Ordinal))
@@ -137,6 +137,12 @@ public sealed partial class QuizCatalogService(IWebHostEnvironment environment)
             questionText,
             options,
             correctAnswer);
+    }
+
+    private static bool IsAnswerFeedbackMarker(string line)
+    {
+        return line.Equals("Correct answer:", StringComparison.OrdinalIgnoreCase)
+            || line.Equals("Incorrect answer:", StringComparison.OrdinalIgnoreCase);
     }
 
     private static string ToStableId(string value)

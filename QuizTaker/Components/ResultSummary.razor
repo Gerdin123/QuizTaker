@@ -19,6 +19,10 @@
         <span>Status</span>
         <strong>@(Result.ScoreSaved ? "Saved" : "Practice only")</strong>
     </div>
+    <div>
+        <span>Time taken</span>
+        <strong>@FormatDuration(Result.Duration)</strong>
+    </div>
 </div>
 
 @if (!Result.ScoreSaved)
@@ -43,4 +47,11 @@
 @code {
     [Parameter, EditorRequired]
     public QuizRunResult Result { get; set; } = default!;
+
+    private static string FormatDuration(TimeSpan duration)
+    {
+        return duration.TotalHours >= 1
+            ? $"{(int)duration.TotalHours}:{duration.Minutes:00}:{duration.Seconds:00}"
+            : $"{duration.Minutes}:{duration.Seconds:00}";
+    }
 }

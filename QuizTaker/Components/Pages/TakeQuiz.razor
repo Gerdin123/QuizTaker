@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 @inject QuizSessionService SessionService
 @inject NavigationManager Navigation
+@implements IDisposable
 
 <PageTitle>Take Quiz</PageTitle>
 
@@ -35,6 +36,17 @@ else
         <div class="alert alert-warning">@validationMessage</div>
     }
 
+    <div class="run-metrics" aria-live="polite">
+        <div>
+            <span>Time elapsed</span>
+            <strong>@FormatDuration(elapsed)</strong>
+        </div>
+        <div>
+            <span>Answered</span>
+            <strong>@selectedAnswers.Count / @run.Questions.Count</strong>
+        </div>
+    </div>
+
     <div class="question-stack">
         @for (var i = 0; i < run.Questions.Count; i++)
         {
@@ -48,7 +60,7 @@ else
                 <div class="choice-list">
                     @foreach (var choice in question.Choices)
                     {
-                        <label class="choice-row">
+                        <label class="choice-row @(IsSelected(question.Id, choice) ? "selected" : "")">
                             <input type="radio"
                                    name="@question.Id"
                                    value="@choice"
@@ -74,17 +86,37 @@ else
 
     private QuizRun? run;
     private readonly Dictionary<string, string> selectedAnswers = [];
+    private TimeSpan elapsed;
+    private Timer? elapsedTimer;
     private string? validationMessage;
 
     protected override void OnParametersSet()
     {
         run = SessionService.GetRun(RunId);
+        elapsedTimer?.Dispose();
+        elapsedTimer = null;
+
+        if (run is not null)
+        {
+            UpdateElapsed();
+            elapsedTimer = new Timer(_ => InvokeAsync(() =>
+            {
+                UpdateElapsed();
+                StateHasChanged();
+            }), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+        }
     }
 
     private void SelectAnswer(string questionId, string choice)
     {
         selectedAnswers[questionId] = choice;
         validationMessage = null;
+    }
+
+    private bool IsSelected(string questionId, string choice)
+    {
+        return selectedAnswers.TryGetValue(questionId, out var selectedAnswer)
+            && selectedAnswer == choice;
     }
 
     private async Task SubmitAsync()
@@ -103,7 +135,26 @@ else
         var result = await SessionService.CompleteRunAsync(run.Id, selectedAnswers);
         if (result is not null)
         {
+            elapsedTimer?.Dispose();
+            elapsedTimer = null;
             Navigation.NavigateTo($"results/{run.Id}", forceLoad: true);
         }
+    }
+
+    private void UpdateElapsed()
+    {
+        elapsed = run is null ? TimeSpan.Zero : DateTimeOffset.UtcNow - run.StartedAt;
+    }
+
+    private static string FormatDuration(TimeSpan duration)
+    {
+        return duration.TotalHours >= 1
+            ? $"{(int)duration.TotalHours}:{duration.Minutes:00}:{duration.Seconds:00}"
+            : $"{duration.Minutes}:{duration.Seconds:00}";
+    }
+
+    public void Dispose()
+    {
+        elapsedTimer?.Dispose();
     }
 }

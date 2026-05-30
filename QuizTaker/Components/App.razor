@@ -8,11 +8,21 @@
     <ResourcePreloader />
     <script>
         (() => {
+            const themes = ["blue-light", "blue-dark", "gray-light", "gray-dark", "rose-light", "rose-dark", "violet-light", "violet-dark", "forest-light", "forest-dark"];
+            const aliases = {
+                light: "blue-light",
+                dark: "blue-dark",
+                gray: "gray-light",
+                rose: "rose-light",
+                violet: "violet-dark",
+                forest: "forest-dark"
+            };
             const storedTheme = localStorage.getItem("quiztaker-theme");
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const theme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : (prefersDark ? "dark" : "light");
+            const aliasedTheme = aliases[storedTheme] ?? storedTheme;
+            const theme = themes.includes(aliasedTheme) ? aliasedTheme : (prefersDark ? "blue-dark" : "blue-light");
             document.documentElement.dataset.theme = theme;
-            document.documentElement.classList.add(theme === "dark" ? "theme-dark" : "theme-light");
+            document.documentElement.classList.add(`theme-${theme}`);
         })();
     </script>
     <link rel="stylesheet" href="@Assets["app.css"]" />
