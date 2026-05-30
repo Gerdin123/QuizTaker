@@ -634,6 +634,44 @@ input {
     padding: 0.8rem;
 }
 
+.filter-bar {
+    align-items: end;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(180px, 1fr)) auto;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.filter-bar label {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.filter-bar span {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.filter-bar select {
+    background: var(--surface-muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    color: var(--text);
+    color-scheme: var(--control-color-scheme);
+    min-height: 2.45rem;
+    padding: 0.45rem 0.6rem;
+}
+
+.filter-bar select:focus {
+    border-color: var(--primary);
+    outline: 0;
+}
+
 .quiz-grid {
     display: grid;
     gap: 0.8rem;
@@ -943,9 +981,14 @@ code {
     .course-actions,
     .run-metrics,
     .submit-bar,
+    .filter-bar,
     .attempt-row {
         align-items: stretch;
         flex-direction: column;
+    }
+
+    .filter-bar {
+        grid-template-columns: 1fr;
     }
 
     .app-nav {

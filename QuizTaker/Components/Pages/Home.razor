@@ -87,15 +87,38 @@ else
 }
 
 <section class="history-section">
-    <h2>Recent scores</h2>
-    @if (recentAttempts.Count == 0)
+    <h2>Recent quiz scores</h2>
+    <div class="filter-bar">
+        <label>
+            <span>Course</span>
+            <select value="@selectedCourse" @onchange="OnCourseFilterChanged">
+                <option value="">All</option>
+                @foreach (var course in catalog.Courses)
+                {
+                    <option value="@course.Name">@course.Name</option>
+                }
+            </select>
+        </label>
+        <label>
+            <span>Quiz</span>
+            <select @bind="selectedQuizId">
+                <option value="">All</option>
+                @foreach (var quiz in FilterQuizOptions())
+                {
+                    <option value="@quiz.Id">@quiz.Title</option>
+                }
+            </select>
+        </label>
+        <button class="btn btn-secondary" type="button" @onclick="ResetFilters">Reset filters</button>
+    </div>
+    @if (RecentQuizAttempts().Count == 0)
     {
-        <p>No saved quiz or exam scores yet.</p>
+        <p>No saved quiz scores yet.</p>
     }
     else
     {
         <div class="attempt-list">
-            @foreach (var attempt in recentAttempts)
+            @foreach (var attempt in RecentQuizAttempts())
             {
                 <a class="attempt-row" href="@($"attempt/{attempt.Id}")" data-enhance-nav="false">
                     <span>
@@ -114,6 +137,8 @@ else
     private IReadOnlyList<QuizAttempt> recentAttempts = [];
     private readonly HashSet<string> practiceSelections = [];
     private string? activeCombinedCourse;
+    private string selectedCourse = string.Empty;
+    private string selectedQuizId = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
@@ -171,6 +196,54 @@ else
     private List<QuizDefinition> SelectedPracticeQuizzes(CourseGroup course)
     {
         return course.Quizzes.Where(quiz => practiceSelections.Contains(quiz.Id)).ToList();
+    }
+
+    private IEnumerable<QuizDefinition> FilterQuizOptions()
+    {
+        return catalog.Courses
+            .Where(course => string.IsNullOrEmpty(selectedCourse) || course.Name == selectedCourse)
+            .SelectMany(course => course.Quizzes)
+            .OrderBy(quiz => quiz.Title);
+    }
+
+    private List<QuizAttempt> RecentQuizAttempts()
+    {
+        return recentAttempts
+            .Where(attempt => attempt.Mode == nameof(QuizRunMode.Quiz))
+            .Where(AttemptMatchesFilters)
+            .ToList();
+    }
+
+    private bool AttemptMatchesFilters(QuizAttempt attempt)
+    {
+        if (!string.IsNullOrEmpty(selectedCourse) && attempt.Course != selectedCourse)
+        {
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(selectedQuizId))
+        {
+            return true;
+        }
+
+        var selectedQuiz = catalog.AllQuizzes.FirstOrDefault(quiz => quiz.Id == selectedQuizId);
+        return selectedQuiz is not null && attempt.Title == selectedQuiz.Title;
+    }
+
+    private void OnCourseFilterChanged(ChangeEventArgs eventArgs)
+    {
+        selectedCourse = Convert.ToString(eventArgs.Value) ?? string.Empty;
+        selectedQuizId = string.Empty;
+        activeCombinedCourse = null;
+        practiceSelections.Clear();
+    }
+
+    private void ResetFilters()
+    {
+        selectedCourse = string.Empty;
+        selectedQuizId = string.Empty;
+        activeCombinedCourse = null;
+        practiceSelections.Clear();
     }
 
     private static decimal ScorePercent(QuizAttempt attempt)

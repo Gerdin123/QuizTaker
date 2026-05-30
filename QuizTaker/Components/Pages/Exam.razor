@@ -71,16 +71,66 @@ else
     </div>
 }
 
+<section class="history-section">
+    <h2>Recent exam scores</h2>
+    <div class="filter-bar">
+        <label>
+            <span>Course</span>
+            <select value="@selectedCourse" @onchange="OnCourseFilterChanged">
+                <option value="">All</option>
+                @foreach (var course in catalog.Courses)
+                {
+                    <option value="@course.Name">@course.Name</option>
+                }
+            </select>
+        </label>
+        <label>
+            <span>Quiz</span>
+            <select @bind="selectedQuizId">
+                <option value="">All</option>
+                @foreach (var quiz in FilterQuizOptions())
+                {
+                    <option value="@quiz.Id">@quiz.Title</option>
+                }
+            </select>
+        </label>
+        <button class="btn btn-secondary" type="button" @onclick="ResetFilters">Reset filters</button>
+    </div>
+    @if (RecentExamAttempts().Count == 0)
+    {
+        <p>No saved exam scores yet.</p>
+    }
+    else
+    {
+        <div class="attempt-list">
+            @foreach (var attempt in RecentExamAttempts())
+            {
+                <a class="attempt-row" href="@($"attempt/{attempt.Id}")" data-enhance-nav="false">
+                    <span>
+                        <strong>@attempt.Title</strong>
+                        <small>@attempt.Course - @attempt.Mode - @attempt.CompletedAt.LocalDateTime.ToString("yyyy-MM-dd HH:mm")</small>
+                    </span>
+                    <strong>@attempt.CorrectCount / @attempt.TotalQuestions (@ScorePercent(attempt)%)</strong>
+                </a>
+            }
+        </div>
+    }
+</section>
+
 @code {
     private const int DefaultExamQuestionsPerQuiz = 10;
 
     private QuizCatalog catalog = new([]);
+    private IReadOnlyList<QuizAttempt> recentAttempts = [];
     private readonly HashSet<string> examSelections = [];
     private readonly Dictionary<string, int> examCounts = [];
+    private string selectedCourse = string.Empty;
+    private string selectedQuizId = string.Empty;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         catalog = CatalogService.GetCatalog();
+        recentAttempts = await SessionService.GetRecentAttemptsAsync();
         foreach (var quiz in catalog.AllQuizzes)
         {
             examSelections.Add(quiz.Id);
@@ -131,5 +181,55 @@ else
 
         var runId = SessionService.StartExam(course.Name, selected);
         Navigation.NavigateTo($"take/{runId}", forceLoad: true);
+    }
+
+    private IEnumerable<QuizDefinition> FilterQuizOptions()
+    {
+        return catalog.Courses
+            .Where(course => string.IsNullOrEmpty(selectedCourse) || course.Name == selectedCourse)
+            .SelectMany(course => course.Quizzes)
+            .OrderBy(quiz => quiz.Title);
+    }
+
+    private List<QuizAttempt> RecentExamAttempts()
+    {
+        return recentAttempts
+            .Where(attempt => attempt.Mode == nameof(QuizRunMode.Exam))
+            .Where(AttemptMatchesFilters)
+            .ToList();
+    }
+
+    private bool AttemptMatchesFilters(QuizAttempt attempt)
+    {
+        if (!string.IsNullOrEmpty(selectedCourse) && attempt.Course != selectedCourse)
+        {
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(selectedQuizId))
+        {
+            return true;
+        }
+
+        var selectedQuiz = catalog.AllQuizzes.FirstOrDefault(quiz => quiz.Id == selectedQuizId);
+        return selectedQuiz is not null
+            && attempt.SourceSummary.Contains(selectedQuiz.Title, StringComparison.Ordinal);
+    }
+
+    private void OnCourseFilterChanged(ChangeEventArgs eventArgs)
+    {
+        selectedCourse = Convert.ToString(eventArgs.Value) ?? string.Empty;
+        selectedQuizId = string.Empty;
+    }
+
+    private void ResetFilters()
+    {
+        selectedCourse = string.Empty;
+        selectedQuizId = string.Empty;
+    }
+
+    private static decimal ScorePercent(QuizAttempt attempt)
+    {
+        return attempt.TotalQuestions == 0 ? 0 : Math.Round((decimal)attempt.CorrectCount / attempt.TotalQuestions * 100, 1);
     }
 }
