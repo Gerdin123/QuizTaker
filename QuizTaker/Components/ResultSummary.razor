@@ -38,8 +38,26 @@
                 <span>@answer.Question.QuizTitle</span>
                 <h2>@answer.Question.Text</h2>
             </div>
-            <p><strong>Your answer:</strong> @(string.IsNullOrWhiteSpace(answer.SelectedAnswer) ? "No answer" : answer.SelectedAnswer)</p>
-            <p><strong>Correct answer:</strong> @answer.Question.CorrectAnswer</p>
+            @if (string.IsNullOrWhiteSpace(answer.SelectedAnswer))
+            {
+                <p><strong>Your answer:</strong> No answer</p>
+            }
+            <div class="review-choice-list">
+                @foreach (var choice in ChoicesFor(answer))
+                {
+                    <div class="@ReviewChoiceClass(choice, answer.SelectedAnswer, answer.Question.CorrectAnswer)">
+                        <span>@choice</span>
+                        @if (string.Equals(choice, answer.Question.CorrectAnswer, StringComparison.Ordinal))
+                        {
+                            <strong>Correct</strong>
+                        }
+                        else if (string.Equals(choice, answer.SelectedAnswer, StringComparison.Ordinal))
+                        {
+                            <strong>Your answer</strong>
+                        }
+                    </div>
+                }
+            </div>
         </article>
     }
 </div>
@@ -47,6 +65,40 @@
 @code {
     [Parameter, EditorRequired]
     public QuizRunResult Result { get; set; } = default!;
+
+    private static IReadOnlyList<string> ChoicesFor(QuizRunAnswer answer)
+    {
+        var choices = answer.Question.Choices.ToList();
+        if (!choices.Contains(answer.Question.CorrectAnswer, StringComparer.Ordinal))
+        {
+            choices.Add(answer.Question.CorrectAnswer);
+        }
+
+        if (!string.IsNullOrWhiteSpace(answer.SelectedAnswer)
+            && !choices.Contains(answer.SelectedAnswer, StringComparer.Ordinal))
+        {
+            choices.Add(answer.SelectedAnswer);
+        }
+
+        return choices;
+    }
+
+    private static string ReviewChoiceClass(string choice, string? selectedAnswer, string correctAnswer)
+    {
+        var classes = new List<string> { "review-choice" };
+        if (string.Equals(choice, correctAnswer, StringComparison.Ordinal))
+        {
+            classes.Add("correct");
+        }
+
+        if (!string.Equals(selectedAnswer, correctAnswer, StringComparison.Ordinal)
+            && string.Equals(choice, selectedAnswer, StringComparison.Ordinal))
+        {
+            classes.Add("incorrect");
+        }
+
+        return string.Join(" ", classes);
+    }
 
     private static string FormatDuration(TimeSpan duration)
     {

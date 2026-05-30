@@ -1,6 +1,7 @@
 @page "/attempt/{AttemptId:int}"
 @rendermode InteractiveServer
 @inject QuizSessionService SessionService
+@inject QuizCatalogService CatalogService
 
 <PageTitle>Saved Score</PageTitle>
 
@@ -40,8 +41,26 @@ else
                     <span>@answer.SourceQuizTitle</span>
                     <h2>@answer.QuestionText</h2>
                 </div>
-                <p><strong>Your answer:</strong> @(string.IsNullOrWhiteSpace(answer.SelectedAnswer) ? "No answer" : answer.SelectedAnswer)</p>
-                <p><strong>Correct answer:</strong> @answer.CorrectAnswer</p>
+                @if (string.IsNullOrWhiteSpace(answer.SelectedAnswer))
+                {
+                    <p><strong>Your answer:</strong> No answer</p>
+                }
+                <div class="review-choice-list">
+                    @foreach (var choice in ChoicesFor(answer))
+                    {
+                        <div class="@ReviewChoiceClass(choice, answer.SelectedAnswer, answer.CorrectAnswer)">
+                            <span>@choice</span>
+                            @if (string.Equals(choice, answer.CorrectAnswer, StringComparison.Ordinal))
+                            {
+                                <strong>Correct</strong>
+                            }
+                            else if (string.Equals(choice, answer.SelectedAnswer, StringComparison.Ordinal))
+                            {
+                                <strong>Your answer</strong>
+                            }
+                        </div>
+                    }
+                </div>
             </article>
         }
     </div>
@@ -61,5 +80,46 @@ else
     private static decimal ScorePercent(QuizAttempt savedAttempt)
     {
         return savedAttempt.TotalQuestions == 0 ? 0 : Math.Round((decimal)savedAttempt.CorrectCount / savedAttempt.TotalQuestions * 100, 1);
+    }
+
+    private IReadOnlyList<string> ChoicesFor(QuizAttemptAnswer answer)
+    {
+        var choices = CatalogService.GetCatalog()
+            .AllQuizzes
+            .Where(quiz => string.Equals(quiz.Title, answer.SourceQuizTitle, StringComparison.Ordinal))
+            .SelectMany(quiz => quiz.Questions)
+            .FirstOrDefault(question => string.Equals(question.Text, answer.QuestionText, StringComparison.Ordinal))
+            ?.Choices
+            .ToList() ?? [];
+
+        if (!choices.Contains(answer.CorrectAnswer, StringComparer.Ordinal))
+        {
+            choices.Add(answer.CorrectAnswer);
+        }
+
+        if (!string.IsNullOrWhiteSpace(answer.SelectedAnswer)
+            && !choices.Contains(answer.SelectedAnswer, StringComparer.Ordinal))
+        {
+            choices.Add(answer.SelectedAnswer);
+        }
+
+        return choices;
+    }
+
+    private static string ReviewChoiceClass(string choice, string? selectedAnswer, string correctAnswer)
+    {
+        var classes = new List<string> { "review-choice" };
+        if (string.Equals(choice, correctAnswer, StringComparison.Ordinal))
+        {
+            classes.Add("correct");
+        }
+
+        if (!string.Equals(selectedAnswer, correctAnswer, StringComparison.Ordinal)
+            && string.Equals(choice, selectedAnswer, StringComparison.Ordinal))
+        {
+            classes.Add("incorrect");
+        }
+
+        return string.Join(" ", classes);
     }
 }
