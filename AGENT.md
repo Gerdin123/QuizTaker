@@ -48,8 +48,8 @@ dotnet build QuizTaker\QuizTaker.csproj -o _tmp_verify_build /p:UseAppHost=false
 - `Services/QuizCatalogService.cs` scans and parses quiz text files from `Quizzes`.
 - `Services/QuizSessionService.cs` manages active quiz runs, elapsed timing, completion, scoring, and saved attempt lookup.
 - `Data/QuizTakerDbContext.cs` defines EF Core persistence for saved attempts.
-- `Components/Pages/Home.razor` handles single quizzes and combined practice tests.
-- `Components/Pages/Exam.razor` handles scored exam setup.
+- `Components/Pages/Home.razor` handles single quizzes, combined practice tests, recent quiz scores, score filtering, and quiz grade markers.
+- `Components/Pages/Exam.razor` handles scored exam setup, recent exam scores, score filtering, and exam grade markers.
 - `Components/Pages/TakeQuiz.razor` renders active quiz runs, selected answer highlighting, elapsed time, answered count, and final submit controls.
 - `Components/Pages/Results.razor` and `Components/ResultSummary.razor` show immediate results.
 - `Components/Pages/AttemptDetails.razor` shows saved scores.
@@ -113,6 +113,16 @@ Quiz-taking UI:
 - Selected answers should highlight the full `.choice-row`, not only the radio input.
 - The elapsed timer and answered count are shown above the question list in `.run-metrics`.
 - The submit bar is a normal final page section, not sticky, so it does not cover following questions.
+- Immediate and saved summary screens show every option for each question, with the correct option green and an incorrect selected option red.
+
+Recent score UI:
+
+- Home shows only saved `Quiz` attempts in `Recent quiz scores`.
+- Exam shows only saved `Exam` attempts in `Recent exam scores`.
+- Course and quiz filters apply only to the recent score lists, not to the quiz/exam setup cards.
+- Quiz grading: `Perfect` for 0 wrong answers, `Passed` for 1-9 wrong answers, and `Fail` for 10 or more wrong answers.
+- Exam grading: `Fail` below 60%, `Passed` from 60-89%, `Passed with merit` from 90-99%, and `Perfect` at 100%.
+- Grade row styling is shared through `.attempt-row.grade-*` CSS classes.
 
 Navigation behavior:
 

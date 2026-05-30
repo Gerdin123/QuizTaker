@@ -13,6 +13,8 @@ QuizTaker is a single-project Blazor Server app for taking saved quiz questions,
 - Highlights the selected answer row while taking a quiz, combined practice test, or exam.
 - Shows elapsed time and answered count above the question list while taking a quiz, combined practice test, or exam.
 - Shows result summaries with correct count, percentage, and answer review.
+- Shows recent quiz scores on the quiz page and recent exam scores on the exam page, with course and quiz filters for those score lists.
+- Marks recent quiz and exam scores with grade colors.
 - Saves quiz and exam attempts with EF Core and SQLite.
 - Includes multiple persisted color themes, each with explicit light and dark variants.
 - Uses a custom app shell instead of the default Blazor template UI.
@@ -86,6 +88,8 @@ Home page:
 - The take page shows elapsed time and answered count above the questions.
 - Selected answers are highlighted across the full answer row.
 - The submit button is at the end of the page instead of sticky.
+- Recent quiz scores are shown below the quiz cards and can be filtered by course and quiz.
+- Quiz score cards are graded as `Fail` for 10 or more wrong answers, `Passed` for 1-9 wrong answers, and `Perfect` for all answers correct.
 
 Exam page:
 
@@ -94,6 +98,8 @@ Exam page:
 - Each quiz defaults to 10 questions, capped by the number of available questions.
 - Click quiz cards to include or exclude them.
 - Exam scores are saved.
+- Recent exam scores are shown below the exam setup cards and can be filtered by course and quiz.
+- Exam score cards are graded as `Fail` below 60%, `Passed` from 60-89%, `Passed with merit` from 90-99%, and `Perfect` at 100%.
 
 ## Themes
 

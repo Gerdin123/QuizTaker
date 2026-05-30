@@ -104,7 +104,7 @@ public sealed partial class QuizCatalogService(IWebHostEnvironment environment)
         }
 
         var questionText = typeIndex + 1 < block.Count ? block[typeIndex + 1].Trim() : string.Empty;
-        var correctAnswer = block[correctMarkerIndex + 1].Trim();
+        var correctAnswer = CorrectKnownSourceAnswer(questionText, block[correctMarkerIndex + 1].Trim());
         if (string.IsNullOrWhiteSpace(questionText) || string.IsNullOrWhiteSpace(correctAnswer))
         {
             return null;
@@ -143,6 +143,22 @@ public sealed partial class QuizCatalogService(IWebHostEnvironment environment)
     {
         return line.Equals("Correct answer:", StringComparison.OrdinalIgnoreCase)
             || line.Equals("Incorrect answer:", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static string CorrectKnownSourceAnswer(string questionText, string correctAnswer)
+    {
+        if (questionText.Equals("How does Terraform ensure idempotency?", StringComparison.OrdinalIgnoreCase)
+            || questionText.Equals("How does Terraform enusre idempotency?", StringComparison.OrdinalIgnoreCase))
+        {
+            return "By using the state file to track resources";
+        }
+
+        if (questionText.Equals("What happens if a job fails in GitHub Actions?", StringComparison.OrdinalIgnoreCase))
+        {
+            return "The entire workflow fails by default";
+        }
+
+        return correctAnswer;
     }
 
     private static string ToStableId(string value)
