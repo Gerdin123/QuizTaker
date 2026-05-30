@@ -779,6 +779,69 @@ input {
     display: grid;
 }
 
+.attempt-score {
+    gap: 0.25rem;
+    justify-items: end;
+}
+
+.attempt-score small {
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    color: var(--secondary);
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.2rem 0.5rem;
+}
+
+.attempt-row.exam-grade,
+.attempt-row.quiz-grade {
+    border-left: 6px solid var(--line-strong);
+}
+
+.attempt-row.grade-fail {
+    background: color-mix(in srgb, var(--danger) 12%, var(--surface));
+    border-color: var(--danger);
+    border-left-color: var(--danger);
+}
+
+.attempt-row.grade-fail .attempt-score small {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.attempt-row.grade-pass {
+    background: color-mix(in srgb, var(--success) 12%, var(--surface));
+    border-color: var(--success);
+    border-left-color: var(--success);
+}
+
+.attempt-row.grade-pass .attempt-score small {
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.attempt-row.grade-merit {
+    background: color-mix(in srgb, var(--primary) 14%, var(--surface));
+    border-color: var(--primary);
+    border-left-color: var(--primary);
+}
+
+.attempt-row.grade-merit .attempt-score small {
+    border-color: var(--primary);
+    color: var(--primary-strong);
+}
+
+.attempt-row.grade-perfect {
+    background: color-mix(in srgb, #f2b705 18%, var(--surface));
+    border-color: #d99a00;
+    border-left-color: #d99a00;
+}
+
+.attempt-row.grade-perfect .attempt-score small {
+    border-color: #d99a00;
+    color: #a66f00;
+}
+
 .status-pill {
     border: 1px solid var(--line-strong);
     border-radius: 999px;

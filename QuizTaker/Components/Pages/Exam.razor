@@ -105,12 +105,15 @@ else
         <div class="attempt-list">
             @foreach (var attempt in RecentExamAttempts())
             {
-                <a class="attempt-row" href="@($"attempt/{attempt.Id}")" data-enhance-nav="false">
+                <a class="attempt-row exam-grade @ExamGradeClass(attempt)" href="@($"attempt/{attempt.Id}")" data-enhance-nav="false">
                     <span>
                         <strong>@attempt.Title</strong>
                         <small>@attempt.Course - @attempt.Mode - @attempt.CompletedAt.LocalDateTime.ToString("yyyy-MM-dd HH:mm")</small>
                     </span>
-                    <strong>@attempt.CorrectCount / @attempt.TotalQuestions (@ScorePercent(attempt)%)</strong>
+                    <span class="attempt-score">
+                        <strong>@attempt.CorrectCount / @attempt.TotalQuestions (@ScorePercent(attempt)%)</strong>
+                        <small>@ExamGradeLabel(attempt)</small>
+                    </span>
                 </a>
             }
         </div>
@@ -231,5 +234,29 @@ else
     private static decimal ScorePercent(QuizAttempt attempt)
     {
         return attempt.TotalQuestions == 0 ? 0 : Math.Round((decimal)attempt.CorrectCount / attempt.TotalQuestions * 100, 1);
+    }
+
+    private static string ExamGradeClass(QuizAttempt attempt)
+    {
+        var score = ScorePercent(attempt);
+        return score switch
+        {
+            < 60 => "grade-fail",
+            < 90 => "grade-pass",
+            < 100 => "grade-merit",
+            _ => "grade-perfect"
+        };
+    }
+
+    private static string ExamGradeLabel(QuizAttempt attempt)
+    {
+        var score = ScorePercent(attempt);
+        return score switch
+        {
+            < 60 => "Fail",
+            < 90 => "Passed",
+            < 100 => "Passed with merit",
+            _ => "Perfect"
+        };
     }
 }
